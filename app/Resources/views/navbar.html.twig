@@ -1,0 +1,51 @@
+<nav data-topbar="" class="top-bar">
+    <ul class="title-area">
+        <li class="name">
+            <a href="{{ path('zimzim_bundles_user_homepage') }}" class="hide-for-small">
+                {{ 'views.navbar.title'|trans }}
+            </a>
+            <a href="{{ path('zimzim_bundles_user_homepage') }}" class="show-for-small title-top-bar">
+                {{ 'views.navbar.title'|trans }}
+            </a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="">{{ 'views.navbar.menu'|trans }}</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <ul class="right">
+            {% if is_granted('ROLE_USER') %}
+            <li class="divider"></li>
+            <li class="has-dropdown not-click">
+                <a href="#">{{ app.user.username }}</a>
+                <ul class="dropdown">
+                    <li class="title back js-generated">
+                        <a href="javascript:void(0);">
+                            {{ 'views.navbar.back'|trans }}
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('fos_user_profile_show') }}">
+                            {{ 'views.navbar.edit'|trans }}
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="medium button" href="{{ path('fos_user_security_logout') }}">
+                            {{ 'views.navbar.logout'|trans }}
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                </ul>
+            </li>
+            <li class="divider"></li>
+        </ul>
+        {% else %}
+            <li class="divider"></li>
+            <li class="has-form">
+                <a class="medium button" href="{{ path('hwi_oauth_connect') }}">
+                    {{ 'views.navbar.login'|trans }}
+                </a>
+            </li>
+            </ul>
+        {% endif %}
+    </section>
+</nav>

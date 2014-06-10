@@ -1,0 +1,24 @@
+@import "settings";
+@import "normalize";
+@import "foundation";
+
+html, body{
+    height: 100%;
+}
+div.container{
+    hight: auto;
+    min-height: 100%;
+    padding-bottom: 150px;
+}
+
+footer.footer{
+    background: $topbar-bg-color;
+    height: 150px;
+    margin-top: -150px;
+    clear:both;
+    max-width: 100%;
+    h4{
+        color: #FFF;
+        padding: 2rem;
+    }
+}

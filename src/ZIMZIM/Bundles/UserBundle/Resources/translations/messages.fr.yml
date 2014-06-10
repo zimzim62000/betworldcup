@@ -1,0 +1,9 @@
+views:
+    user:
+        default:
+            index:
+                title: "Bienvenue sur default site"
+                join: "Link to :"
+                register: "Inscription"
+                login: "Connexion"
+                tiers: "Founisseur tiers"

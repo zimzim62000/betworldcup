@@ -1,0 +1,3 @@
+zimzim_bundles_user_homepage:
+    pattern:  /
+    defaults: { _controller: ZIMZIMBundlesUserBundle:Default:index }
