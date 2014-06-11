@@ -11,9 +11,9 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
 
-        $builder->remove('username');
         $builder->remove('plainPassword');
-        $builder->add('plainPassword', 'password');
+        $builder->add('plainPassword', 'password', array('label' => 'mot de passe'))
+            ->add('submit', 'submit', array('label' => 'button.register'));
     }
 
     public function getName()

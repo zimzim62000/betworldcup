@@ -10,7 +10,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 /**
  * User
  *
- * @ORM\Table(name="savingsmoke_user")
+ * @ORM\Table(name="worldcup_user")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
@@ -81,6 +81,19 @@ class User extends BaseUser
      */
     private $twitterAccessToken;
 
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\UserBet", mappedBy="user")
+     */
+    private $userBets;
+
+    public function __construct(){
+        parent::__construct();
+
+        $this->userBets = new ArrayCollection();
+    }
 
     /**
      * @param string $googleAccessToken
@@ -260,4 +273,22 @@ class User extends BaseUser
     {
         return $this->twitter_id;
     }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $userBets
+     */
+    public function setUserBets($userBets)
+    {
+        $this->userBets = $userBets;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getUserBets()
+    {
+        return $this->userBets;
+    }
+
+
 }

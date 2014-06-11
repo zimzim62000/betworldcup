@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'zimzim_worldcup_game.index.title'|trans }}
+{% endblock title %}
+
+{% block page %}
+    <div class="row">
+        <div class="small-12 large-12 columns">
+            <h1 class="text-center title">Game list</h1>
+        </div>
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="row">
+            <div class="small-12 large-12 columns">
+                <a class="tiny button" href="{{ path('zimzim_worldcup_game_new') }}">
+                    {{ 'button.create'|trans }}
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+    {{ grid_search(grid) }}
+
+    {{ grid(grid) }}
+
+{% endblock %}

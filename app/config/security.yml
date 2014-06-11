@@ -42,7 +42,7 @@ security:
             security: false
             form_login:
                 always_use_default_target_path: true
-                default_target_path: /home/
+                default_target_path: /game/
 
             remember_me:
                 key: "%secret%"
@@ -55,3 +55,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/game/new/, role: ROLE_ADMIN }
+        - { path: ^/game/edit/, role: ROLE_ADMIN }
+        - { path: ^/game/, role: ROLE_USER }
+        - { path: ^/bet/$, role: ROLE_USER }

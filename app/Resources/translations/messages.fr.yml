@@ -6,11 +6,12 @@ button:
     delete: supprimer
     find: "rechercher"
     close: "Fermer"
+    bet: "Parier"
 link:
     return: "Retour à la liste"
 views:
     navbar:
-        title: "Centaure systems world cup"
+        title: "Centaure systems"
         menu: "Menu"
         back: "Retour"
         login: "Connexion"
@@ -25,6 +26,8 @@ views:
         typemeat: "Type de viande"
         butchery: "Boucheries"
         opinion: "Les Avis"
+        game: "Les matches"
+        score: "Les Scores"
     HWIOAuthBundle:
         connect:
             login:
@@ -34,7 +37,7 @@ views:
                 login: "connexion"
                 register: "inscription"
     footer:
-        title: Centaure systems world cup
+        title: "Centaure systems"
 grid:
     filter:
         disabled: "Cacher"

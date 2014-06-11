@@ -12,7 +12,8 @@ services:
         tags:
             - { name: form.type, alias: zimzim_user_registration }
 
-    zimzim_user.userupdate.form.type:
-        class: ZIMZIM\Bundles\UserBundle\Form\UserUpdateType
+    zimzim_user.profile.form.type:
+        class: ZIMZIM\Bundles\UserBundle\Form\Type\ProfileUserType
+        arguments: [%fos_user.model.user.class%]
         tags:
-            - { name: form.type, alias: zimzim_bundles_userbundle_userupdate }
+            - { name: form.type, alias: zimzim_user_profile }

@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'zimzim_worldcup_userbet.index.title'|trans }}
+{% endblock title %}
+
+{% block page %}
+    <div class="row">
+        <div class="small-12 large-12 columns">
+            <h1 class="text-center title">Les Scores</h1>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="small-12 large-12 columns">
+            {% for key,game in games %}
+                <div class="row panel">
+                    <div class="small-12 large-4 columns text-center">
+                        <h3>{{ game.teamA.name }} : {{ game.scoreTeamA }}</h3>
+
+                        <h3>{{ game.teamB.name }} : {{ game.scoreTeamB }}</h3>
+                    </div>
+                    <div class="small-12 large-8 columns text-center">
+                        {% for key,score in tabscore[game.id] %}
+                            <div class="row panel">
+                                <div class="small-6 columns text-center">
+                                    {{ score['user'] }}
+                                </div>
+                                <div class="small-3 columns text-center">
+                                    {{ score['score'] }}
+                                </div>
+                                <div class="small-3 columns text-center">
+                                    {{ score['points'] }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -22,3 +22,40 @@ footer.footer{
         padding: 2rem;
     }
 }
+.top-bar .name{
+    line-height: 45px;
+    a{
+        color: #FFF;
+        padding: 0 1rem;
+    }
+}
+table.width-100{
+    width :100%;
+}
+
+.bgcolor{
+    color: $body-bg !important;
+}
+.bgcolor:hover{
+    color: $body-bg !important;
+}
+.primarycolor{
+    color: $primary-color !important;
+}
+.bluecolor{
+    color: $blue;
+}
+.headerpagehome{
+
+}
+p.p-large{
+    font-size: 1.275rem;
+    padding: 1.5rem;
+}
+ul.grid-row-actions li a {
+    font-weight: bold;
+}
+ul.grid-row-actions li a:hover {
+    font-weight: bold;
+    color: $secondary-color;
+}

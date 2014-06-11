@@ -1,0 +1,17 @@
+parameters:
+#    zimzim_bundles_world_cup.example.class: ZIMZIM\Bundles\WorldCupBundle\Example
+
+services:
+    zimzim_bundles_worldcup.type.scoretype:
+        class: ZIMZIM\Bundles\WorldCupBundle\Form\Type\ScoreType
+        tags:
+            - { name: form.type, alias: zimzim_bundles_worldcupbundle_scoretype }
+    zimzim_bundles_worldcup.userbettype:
+        class: ZIMZIM\Bundles\WorldCupBundle\Form\UserBetType
+        tags:
+            - { name: form.type, alias: zimzim_bundles_worldcupbundle_userbettype }
+    zimzim_bundles_worldcup.calculate.score:
+        class: ZIMZIM\Bundles\WorldCupBundle\Calculate\Score
+        arguments: [ @doctrine.orm.entity_manager, @zimzim_bundles_worldcup.calculate.gamepoint ]
+    zimzim_bundles_worldcup.calculate.gamepoint:
+        class: ZIMZIM\Bundles\WorldCupBundle\Calculate\GamePoint

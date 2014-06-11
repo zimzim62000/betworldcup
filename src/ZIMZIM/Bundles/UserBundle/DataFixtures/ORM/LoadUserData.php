@@ -17,11 +17,23 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
         $zimzim->setPlainPassword('170183');
         $zimzim->addRole('ROLE_ADMIN');
         $zimzim->setEnabled(true);
+        $zimzim->setUsername('zimzim');
         $zimzim->setFirstname('Fabien');
         $zimzim->setLastname('Zimmermann');
         $om->persist($zimzim);
         $this->addReference('zimzim', $zimzim);
 
+
+        $zimzim = new User();
+        $zimzim->setEmail('vw@centaure-systems.fr');
+        $zimzim->setPlainPassword('GT5Z');
+        $zimzim->addRole('ROLE_USER');
+        $zimzim->setEnabled(true);
+        $zimzim->setUsername('Valentin');
+        $zimzim->setFirstname('Valentin');
+        $zimzim->setLastname('Wojtkowiak');
+        $om->persist($zimzim);
+        $this->addReference('valentin', $zimzim);
 
         $om->flush();
     }

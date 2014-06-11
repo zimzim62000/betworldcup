@@ -1,0 +1,12 @@
+zimzim_bundles_world_cup_zimzim_worldcup_game:
+    resource: "@ZIMZIMBundlesWorldCupBundle/Resources/config/routing/game.yml"
+    prefix:   /game/
+
+ZIMZIMBundlesWorldCupBundle_zimzim_worldcup_userbet:
+    resource: "@ZIMZIMBundlesWorldCupBundle/Resources/config/routing/userbet.yml"
+    prefix:   /userbet/
+
+zimzim_worldcup_score:
+    pattern:  /score/
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Score:index" }
+    requirements: { _method: get }

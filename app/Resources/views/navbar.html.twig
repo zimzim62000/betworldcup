@@ -13,7 +13,19 @@
 
     <section class="top-bar-section">
         <ul class="right">
+            <li class="divider"></li>
+            <li class="">
+                <a href="{{ path('zimzim_worldcup_score') }}">
+                    {{ 'views.navbar.score'|trans }}
+                </a>
+            </li>
+            <li class="divider"></li>
             {% if is_granted('ROLE_USER') %}
+            <li class="">
+                <a href="{{ path('zimzim_worldcup_game') }}">
+                    {{ 'views.navbar.game'|trans }}
+                </a>
+            </li>
             <li class="divider"></li>
             <li class="has-dropdown not-click">
                 <a href="#">{{ app.user.username }}</a>
@@ -28,8 +40,8 @@
                             {{ 'views.navbar.edit'|trans }}
                         </a>
                     </li>
-                    <li class="">
-                        <a class="medium button" href="{{ path('fos_user_security_logout') }}">
+                    <li class="has-form">
+                        <a class="button" href="{{ path('fos_user_security_logout') }}">
                             {{ 'views.navbar.logout'|trans }}
                         </a>
                     </li>
@@ -41,7 +53,7 @@
         {% else %}
             <li class="divider"></li>
             <li class="has-form">
-                <a class="medium button" href="{{ path('hwi_oauth_connect') }}">
+                <a class="button tiny" href="{{ path('hwi_oauth_connect') }}">
                     {{ 'views.navbar.login'|trans }}
                 </a>
             </li>

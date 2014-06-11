@@ -1,3 +1,11 @@
+zimzim_bundles_world_cup:
+    resource: "@ZIMZIMBundlesWorldCupBundle/Resources/config/routing.yml"
+    prefix:   /
+
+zimzim_bundles_user:
+    resource: "@ZIMZIMBundlesUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
     prefix: /user/login
@@ -37,7 +45,3 @@ facebook_login:
 
 twitter_login:
     pattern: /user/login/check-twitter
-
-zimzim_bundles_user:
-    resource: "@ZIMZIMBundlesUserBundle/Resources/config/routing.yml"
-    prefix:   /
