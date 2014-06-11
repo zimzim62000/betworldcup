@@ -4,7 +4,7 @@ namespace ZIMZIM\Bundles\WorldCupBundle\Tests\Controller;
 
 use ZIMZIM\Test\ZimzimWebTestCase;
 
-class UserBetControllerTest extends ZimzimWebTestCase
+class ScoreControllerTest extends ZimzimWebTestCase
 {
     public $client;
     public $router;
@@ -19,7 +19,7 @@ class UserBetControllerTest extends ZimzimWebTestCase
 
     public function testIndex()
     {
-        $route = $this->router->generate('zimzim_worldcup_userbet');
+        $route = $this->router->generate('zimzim_worldcup_score');
         $crawler = $this->client->request('GET', $route);
         $this->assertEquals(
             200,
@@ -27,16 +27,4 @@ class UserBetControllerTest extends ZimzimWebTestCase
             "Unexpected HTTP status code for GET " . $route
         );
     }
-
-    public function testBetWithGame()
-    {
-        $route = $this->router->generate('zimzim_worldcup_userbet_with_game', array('id' => 5));
-        $crawler = $this->client->request('GET', $route);
-        $this->assertEquals(
-            200,
-            $this->client->getResponse()->getStatusCode(),
-            "Unexpected HTTP status code for GET " . $route
-        );
-    }
-
 }

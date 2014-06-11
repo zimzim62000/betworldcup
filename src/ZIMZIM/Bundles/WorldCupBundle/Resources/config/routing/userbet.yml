@@ -2,33 +2,6 @@ zimzim_worldcup_userbet:
     pattern:  /
     defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:UserBet:index" }
 
-zimzim_worldcup_userbet_show:
-    pattern:  /{id}/show
-    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:UserBet:show" }
-
-zimzim_worldcup_userbet_new:
-    pattern:  /new
-    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:UserBet:new" }
-
-zimzim_worldcup_userbet_create:
-    pattern:  /create
-    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:UserBet:create" }
-    requirements: { _method: post }
-
-zimzim_worldcup_userbet_edit:
-    pattern:  /{id}/edit
-    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:UserBet:edit" }
-
-zimzim_worldcup_userbet_update:
-    pattern:  /{id}/update
-    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:UserBet:update" }
-    requirements: { _method: post|put }
-
-zimzim_worldcup_userbet_delete:
-    pattern:  /{id}/delete
-    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:UserBet:delete" }
-    requirements: { _method: post|delete }
-
 zimzim_worldcup_userbet_with_game:
     pattern: /game/{id}/bet/
     defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:UserBet:betwithgame" }
