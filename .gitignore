@@ -23,3 +23,5 @@ node_modules/
 bower_components/
 
 zz
+
+web/app/js/ga.js
