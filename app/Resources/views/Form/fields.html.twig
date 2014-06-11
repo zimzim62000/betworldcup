@@ -82,7 +82,7 @@
 
 {% block button_widget %}
     {% spaceless %}
-        {% set attr = attr|merge({'class': ('tiny button')}) %}
+        {% set attr = attr|merge({'class': ('tiny button round')}) %}
         {% if label is empty %}
             {% set label = name|humanize %}
         {% endif %}

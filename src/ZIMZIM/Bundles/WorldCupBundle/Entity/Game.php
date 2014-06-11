@@ -49,7 +49,7 @@ class Game
     /**
      * @var integer
      *
-     * @GRID\Column(operatorsVisible=false, filterable=false)
+     * @GRID\Column(operatorsVisible=false, filterable=false, role="ROLE_ADMIN")
      *
      * @ORM\Column(name="scoreTeamA", type="integer", nullable=true)
      */
@@ -57,7 +57,7 @@ class Game
 
     /**
      * @var integer
-     * @GRID\Column(operatorsVisible=false, filterable=false)
+     * @GRID\Column(operatorsVisible=false, filterable=false, role="ROLE_ADMIN")
      *
      * @ORM\Column(name="scoreTeamB", type="integer", nullable=true)
      */
@@ -66,7 +66,7 @@ class Game
     /**
      * @var \DateTime
      *
-     * @GRID\Column(format="d / m - H:i", operatorsVisible=false)
+     * @GRID\Column(format="d / m - H:i", operatorsVisible=false, role="ROLE_ADMIN")
      *
      *
      * @ORM\Column(name="date", type="datetime")
@@ -76,7 +76,7 @@ class Game
     /**
      * @var string
      *
-     * @GRID\Column(operatorsVisible=false)
+     * @GRID\Column(operatorsVisible=false, role="ROLE_ADMIN")
      *
      * @ORM\Column(name="type", type="string", length=255)
      */

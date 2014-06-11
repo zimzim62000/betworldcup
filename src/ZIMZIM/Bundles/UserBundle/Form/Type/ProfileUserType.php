@@ -12,7 +12,7 @@ class ProfileUserType extends BaseType
         parent::buildForm($builder, $options);
 
         $builder->remove('current_password');
-        $builder->add('submit', 'submit');
+        $builder->add('submit', 'submit', array('label'=> 'button.update'));
     }
 
     public function getName()

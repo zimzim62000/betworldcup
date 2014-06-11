@@ -1,0 +1,7 @@
+views:
+    user:
+        profile:
+            show:
+                title: "Mon compte, ici gérer l'intégralité de vos informations."
+            edit:
+                title: Modifier mes informations

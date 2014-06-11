@@ -12,12 +12,11 @@ class ZimzimController extends Controller{
 
     protected $grid;
 
-    protected function gridList($data)
+    protected function gridList($data, $setSource = true)
     {
 
         $grid = $this->get('grid');
         $source = new Entity($data['entity']);
-        $grid->setSource($source);
 
         if (isset($data['show'])) {
             $rowAction = new RowAction("button.show", $data['show']);
@@ -34,7 +33,13 @@ class ZimzimController extends Controller{
             $grid->addMassAction($massAction);
         }
 
+        if($setSource){
+            $grid->setSource($source);
+        }
+
         $this->grid = $grid;
+
+        return $source;
     }
 
     protected function createSuccess()
@@ -73,6 +78,16 @@ class ZimzimController extends Controller{
         $this->get('session')->getFlashBag()->add(
             $data['type'],
             $data['message']
+        );
+    }
+
+    protected function displayErorException($message)
+    {
+        $this->addFlashMessage(
+            array(
+                'type' => 'errors',
+                'message' => $message
+            )
         );
     }
 }

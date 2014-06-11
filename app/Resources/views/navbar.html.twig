@@ -2,10 +2,10 @@
     <ul class="title-area">
         <li class="name">
             <a href="{{ path('zimzim_bundles_worldcup_homepage') }}" class="hide-for-small">
-                {{ 'views.navbar.title'|trans }}
+                {{ 'site.title.long'|trans }}<span class="beta">{{ 'site.title.beta'|trans }}</span>
             </a>
             <a href="{{ path('zimzim_bundles_worldcup_homepage') }}" class="show-for-small title-top-bar">
-                {{ 'views.navbar.title'|trans }}
+                {{ 'site.title.small'|trans }}<span class="beta">{{ 'site.title.beta'|trans }}</span>
             </a>
         </li>
         <li class="toggle-topbar menu-icon"><a href="">{{ 'views.navbar.menu'|trans }}</a></li>
@@ -13,6 +13,7 @@
 
     <section class="top-bar-section">
         <ul class="right">
+            {% if is_granted('ROLE_USER') %}
             <li class="divider"></li>
             <li class="">
                 <a href="{{ path('zimzim_worldcup_score') }}">
@@ -20,7 +21,6 @@
                 </a>
             </li>
             <li class="divider"></li>
-            {% if is_granted('ROLE_USER') %}
             <li class="">
                 <a href="{{ path('zimzim_worldcup_game') }}">
                     {{ 'views.navbar.game'|trans }}
@@ -40,8 +40,9 @@
                             {{ 'views.navbar.edit'|trans }}
                         </a>
                     </li>
-                    <li class="has-form">
-                        <a class="button" href="{{ path('fos_user_security_logout') }}">
+                    <li class="divider"></li>
+                    <li class="">
+                        <a class="" href="{{ path('fos_user_security_logout') }}">
                             {{ 'views.navbar.logout'|trans }}
                         </a>
                     </li>
@@ -49,7 +50,6 @@
                 </ul>
             </li>
             <li class="divider"></li>
-        </ul>
         {% else %}
             <li class="divider"></li>
             <li class="has-form">
@@ -57,7 +57,7 @@
                     {{ 'views.navbar.login'|trans }}
                 </a>
             </li>
-            </ul>
         {% endif %}
+        </ul>
     </section>
 </nav>

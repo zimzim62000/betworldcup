@@ -15,13 +15,11 @@ class GameRepository extends EntityRepository
         $source->manipulateQuery(
             function ($query) use ($tableAlias, $securityContext) {
                 return;
-                /*
                 $user = $securityContext->getToken()->getUser();
                 $query
                     ->leftJoin($tableAlias.'.gameBets', 'gb')
                     ->andWhere('gb.user = :iduser')
                     ->setParameter('iduser', $user->getId());
-                */
             }
         );
         return $source;

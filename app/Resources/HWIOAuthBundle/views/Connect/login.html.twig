@@ -13,7 +13,7 @@
 
     <div class="row">
         {% for owner in hwi_oauth_resource_owners() %}
-            <div class="small-12 large-4 columns text-center">
+            <div class="small-4 columns text-center">
                 <a href="{{ hwi_oauth_login_url(owner) }}" class="th">
                     <span class="logo-small-tiers image-{{ owner }}"></span>
                 </a>

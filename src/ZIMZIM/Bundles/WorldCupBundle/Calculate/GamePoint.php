@@ -10,6 +10,7 @@ class GamePoint
 
     const MAX_POINT = 3;
     const POINT = 1;
+    const NULL = null;
 
     /**
      * @var ZIMZIM\Bundles\WorldCupBundle\Entity\UserBet
@@ -56,6 +57,9 @@ class GamePoint
     public function calcul()
     {
 
+        if(null === $this->game->getScoreTeamA() || null === $this->game->getScoreTeamA()){
+            return self::NULL;
+        }
 
         /**
          * userbet === game
@@ -94,8 +98,7 @@ class GamePoint
             }
         }
 
-
-        return 0;
+        return self::NULL;
     }
 
 }

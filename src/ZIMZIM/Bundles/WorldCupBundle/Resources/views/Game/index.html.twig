@@ -1,13 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ 'zimzim_worldcup_game.index.title'|trans }}
+    {{ 'views.worldcup.game.index.title'|trans }}
 {% endblock title %}
 
 {% block page %}
     <div class="row">
         <div class="small-12 large-12 columns">
-            <h1 class="text-center title">Game list</h1>
+            <h1 class="text-center headerpagehome">
+                {{ 'views.worldcup.game.index.title'|trans }}
+            </h1>
         </div>
     </div>
     {% if is_granted('ROLE_ADMIN') %}

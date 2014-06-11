@@ -32,7 +32,9 @@ footer.footer{
 table.width-100{
     width :100%;
 }
-
+.full-width{
+    max-width: 100%;
+}
 .bgcolor{
     color: $body-bg !important;
 }
@@ -45,12 +47,17 @@ table.width-100{
 .bluecolor{
     color: $blue;
 }
-.headerpagehome{
-
+h1.headerpagehome{
+    font-size: 1.85rem;
+    padding: 2rem 0 1rem 0;
+}
+h2.headerpagehome{
+    font-size: 1.65rem;
+    padding: 0 0 2rem 0;
 }
 p.p-large{
-    font-size: 1.275rem;
-    padding: 1.5rem;
+    font-size: 1.15rem;
+    padding: 1.5rem 0.25rem;
 }
 ul.grid-row-actions li a {
     font-weight: bold;

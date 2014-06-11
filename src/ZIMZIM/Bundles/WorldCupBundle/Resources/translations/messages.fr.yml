@@ -1,9 +1,22 @@
+site:
+    title:
+        small: www.parierentreamis.fr
+        long: www.parierentreamis.fr, le site de paris entre amis !
+        beta: beta
 views:
     worldcup:
         default:
             index:
-                title: "Bienvenue sur default site"
-                join: "Link to :"
-                register: "Inscription"
-                login: "Connexion"
-                tiers: "Founisseur tiers"
+                title: "Parier entre amis, le site de paris entre amis."
+                catchphrase: "Gagner la partie et vous deviendrez peut-être riche !"
+                metadesc: >
+                    Parier entre amis, le site de paris entre amis.Gagner la partie et vous deviendrez peut-être riche !
+                soustitle1: "Qui organise ? Comment on s'organise ?"
+                who: >
+                    Pas de problème <strong>parierentreamis.fr</strong> est fait pour çà!
+                    Vous désignez un capitaine pour la partie, il crée les régles et définit les <strong>paris</strong>. Vous voilà paré
+                    à vous plonger dans vos statistiques et autres grigris. Mais pour le reste, il n'y a pas de stress, c'est <strong>parier entre amis</strong>
+                    qui s'en occupe!
+        game:
+            index:
+                title: "Liste des matchs sur cette partie"

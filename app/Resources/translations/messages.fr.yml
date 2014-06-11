@@ -7,11 +7,11 @@ button:
     find: "rechercher"
     close: "Fermer"
     bet: "Parier"
+    maybego: "Alors Pret à tentez votre chance ?"
 link:
     return: "Retour à la liste"
 views:
     navbar:
-        title: "Centaure systems"
         menu: "Menu"
         back: "Retour"
         login: "Connexion"

@@ -26,18 +26,30 @@ class GameController extends ZimzimController
             'entity' => 'ZIMZIMBundlesWorldCupBundle:Game',
         );
 
-        $this->gridList($data);
+        $source =$this->gridList($data, false);
 
         /** @var $this->grid \APY\DataGridBundle\Grid\Grid */
         $columns = $this->grid->getColumns();
+
         $columns->setColumnsOrder(array('type', 'teamA.name', 'scoreTeamA', 'scoreTeamB', 'teamB.name', 'date'));
 
         $em = $this->container->get('doctrine')->getManager();
 
-        $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->getListByUser(
-            $this->grid->getSource(),
+        $source = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->getListByUser(
+            $source,
             $this->container->get('security.context')
         );
+
+        $source->manipulateRow(
+            function ($row)
+            {
+                //\Doctrine\Common\Util\Debug::dump($row);die;
+
+                return $row;
+            }
+        );
+
+        $this->grid->setSource($source);
 
         $rowAction = new RowAction("button.bet", 'zimzim_worldcup_userbet_with_game');
         $rowAction->setRouteParameters(array('id'));

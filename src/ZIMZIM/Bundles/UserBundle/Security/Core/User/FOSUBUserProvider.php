@@ -45,7 +45,7 @@ class FOSUBUserProvider extends BaseClass
         $idservice = $response->getUsername();
         $user = $this->userManager->findUserBy(array($this->getProperty($response) => $idservice));
 
-        $classname = 'ZZ\Bundles\UserBundle\Security\Core\User\Login' . ucfirst($service);
+        $classname = 'ZIMZIM\Bundles\UserBundle\Security\Core\User\Login' . ucfirst($service);
         $login = new $classname($this->userManager, $response);
 
         /* @check if user is know in other oauth */

@@ -41,7 +41,7 @@ google_login:
     pattern: /user/login/check-google
 
 facebook_login:
-    pattern: /user/login/check_facebook
+    pattern: /user/login/check-facebook
 
 twitter_login:
     pattern: /user/login/check-twitter
