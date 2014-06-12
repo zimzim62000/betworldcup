@@ -1,27 +1,29 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ 'zimzim_worldcup_userbet.index.title'|trans }}
+    {{ 'views.worldcup.userbet.new.title'|trans }}
 {% endblock title %}
 
 
 {% block page %}
     <div class="row">
         <div class="small-12 large-12 columns">
-            <h1 class="text-center title">UserBet creation</h1>
+            <h1 class="text-center title">
+                {{ 'views.worldcup.userbet.new.title'|trans }}
+            </h1>
         </div>
     </div>
     <div class="row">
         <div class="small-12 large-12 columns">
             {{ form(form) }}
 
-                        <div class="row">
-    <div class="small-12 large-4 columns text-center">
-        <a class="tiny button" href="{{ path('zimzim_worldcup_userbet') }}">
-            {{ 'link.return'|trans }}
-        </a>
-    </div>
-</div>
+            <div class="row">
+                <div class="small-12 large-4 columns text-center">
+                    <a class="tiny button round" href="{{ path('zimzim_worldcup_userbet') }}">
+                        {{ 'link.return'|trans }}
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

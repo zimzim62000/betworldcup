@@ -18,7 +18,7 @@ class ScoreController extends ZimzimController
 
         $calculate = $this->container->get('zimzim_bundles_worldcup.calculate.score');
 
-        $games = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->getGameByDate(new \DateTime('now'));
+        $games = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->getGamePlayedByDate(new \DateTime('now'));
 
         return $this->render(
             'ZIMZIMBundlesWorldCupBundle:Score:index.html.twig',

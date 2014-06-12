@@ -66,7 +66,7 @@ class Game
     /**
      * @var \DateTime
      *
-     * @GRID\Column(format="d / m - H:i", operatorsVisible=false, role="ROLE_ADMIN")
+     * @GRID\Column(format="d/m - H:i", operatorsVisible=false)
      *
      *
      * @ORM\Column(name="date", type="datetime")

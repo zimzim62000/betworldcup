@@ -22,4 +22,22 @@ views:
                     qui s'en occupe!
         game:
             index:
-                title: "Liste des matchs sur cette partie"
+                title: "Liste des matchs de la partie"
+            show:
+                title: "Detail de la partie"
+                noresult: "Il n'y a pas encore de pari pour ce match !"
+        score:
+            index:
+                title: "Liste des scores de la partie"
+                noresult: "Il n'y a pas encore de résultats publiés !"
+                versus: "vs"
+                forgot: "Rappel: 3 points si réponse exacte | 1 point pour une bonne réponse"
+                point: ""
+        userbet:
+            new:
+                title: "Je parie !"
+            index:
+                title: "Liste de tous les paris"
+flashbag:
+    worldcup:
+        cantaccessgame: "Le match est en cours ou à déjà été joué. Impossible de modifier votre pari !"

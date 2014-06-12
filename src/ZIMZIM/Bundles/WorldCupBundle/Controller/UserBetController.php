@@ -64,7 +64,7 @@ class UserBetController extends ZimzimController
         $game = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->find($id);
 
         if($game->getDate() <= new \DateTime('now')){
-            $this->displayErorException('Le match est en cours ou a déjà été joué !');
+            $this->displayErorException('flashbag.worldcup.cantaccessgame');
             return $this->redirect($this->generateUrl('zimzim_worldcup_game'));
         }
 

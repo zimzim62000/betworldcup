@@ -17,6 +17,11 @@ footer.footer{
     margin-top: -150px;
     clear:both;
     max-width: 100%;
+    h5{
+        small{
+            padding: 0 2rem;
+        }
+    }
     h4{
         color: #FFF;
         padding: 2rem;
@@ -65,4 +70,19 @@ ul.grid-row-actions li a {
 ul.grid-row-actions li a:hover {
     font-weight: bold;
     color: $secondary-color;
+}
+div.score{
+    hr{
+        padding: 0;
+        margin: 0.5rem 0;
+    }
+    padding: 0.5rem;
+    h6{
+        padding: 0;
+        margin: 0;
+    }
+}
+span.score{
+    font-weight: bold;
+    color: $white;
 }

@@ -6463,77 +6463,102 @@ footer.footer {
   clear: both;
   max-width: 100%;
 }
-/* line 20, ../scss/css.scss */
+/* line 21, ../scss/css.scss */
+footer.footer h5 small {
+  padding: 0 2rem;
+}
+/* line 25, ../scss/css.scss */
 footer.footer h4 {
   color: #FFF;
   padding: 2rem;
 }
 
-/* line 25, ../scss/css.scss */
+/* line 30, ../scss/css.scss */
 .top-bar .name {
   line-height: 45px;
 }
-/* line 27, ../scss/css.scss */
+/* line 32, ../scss/css.scss */
 .top-bar .name a {
   color: #FFF;
   padding: 0 1rem;
 }
 
-/* line 32, ../scss/css.scss */
+/* line 37, ../scss/css.scss */
 table.width-100 {
   width: 100%;
 }
 
-/* line 35, ../scss/css.scss */
+/* line 40, ../scss/css.scss */
 .full-width {
   max-width: 100%;
 }
 
-/* line 38, ../scss/css.scss */
+/* line 43, ../scss/css.scss */
 .bgcolor {
   color: #00923f !important;
 }
 
-/* line 41, ../scss/css.scss */
+/* line 46, ../scss/css.scss */
 .bgcolor:hover {
   color: #00923f !important;
 }
 
-/* line 44, ../scss/css.scss */
+/* line 49, ../scss/css.scss */
 .primarycolor {
   color: #f8c300 !important;
 }
 
-/* line 47, ../scss/css.scss */
+/* line 52, ../scss/css.scss */
 .bluecolor {
   color: #0c52ad;
 }
 
-/* line 50, ../scss/css.scss */
+/* line 55, ../scss/css.scss */
 h1.headerpagehome {
   font-size: 1.85rem;
   padding: 2rem 0 1rem 0;
 }
 
-/* line 54, ../scss/css.scss */
+/* line 59, ../scss/css.scss */
 h2.headerpagehome {
   font-size: 1.65rem;
   padding: 0 0 2rem 0;
 }
 
-/* line 58, ../scss/css.scss */
+/* line 63, ../scss/css.scss */
 p.p-large {
   font-size: 1.15rem;
   padding: 1.5rem 0.25rem;
 }
 
-/* line 62, ../scss/css.scss */
+/* line 67, ../scss/css.scss */
 ul.grid-row-actions li a {
   font-weight: bold;
 }
 
-/* line 65, ../scss/css.scss */
+/* line 70, ../scss/css.scss */
 ul.grid-row-actions li a:hover {
   font-weight: bold;
   color: #fff71c;
+}
+
+/* line 74, ../scss/css.scss */
+div.score {
+  padding: 0.5rem;
+}
+/* line 75, ../scss/css.scss */
+div.score hr {
+  padding: 0;
+  margin: 0.5rem 0;
+}
+/* line 80, ../scss/css.scss */
+div.score h6 {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 85, ../scss/css.scss */
+span.score {
+  font-weight: bold;
+  color: white;
 }

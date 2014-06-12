@@ -26,9 +26,11 @@ class GameRepository extends EntityRepository
     }
 
 
-    public function getGameByDate(\DateTime $date){
+    public function getGamePlayedByDate(\DateTime $date){
         $query = $this->createQueryBuilder('g');
         $query->where('g.date < :date')
+            ->andWhere('g.scoreTeamA IS NOT NULL')
+            ->andWhere('g.scoreTeamB IS NOT NULL')
             ->setParameter('date', $date);
         return $query->getQuery()->getResult();
     }

@@ -1,13 +1,20 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ 'zimzim_worldcup_userbet.index.title'|trans }}
+    {{ 'views.worldcup.score.index.title'|trans }}
 {% endblock title %}
 
 {% block page %}
     <div class="row">
         <div class="small-12 large-12 columns">
-            <h1 class="text-center title">Les Scores</h1>
+            <h1 class="text-center headerpagehome">
+                {{ 'views.worldcup.score.index.title'|trans }}
+            </h1>
+        </div>
+        <div class="small-12 columns">
+            <h2 class="text-center headerpagehome">
+                <small>{{ 'views.worldcup.score.index.forgot'|trans }}</small>
+            </h2>
         </div>
     </div>
 
@@ -16,29 +23,49 @@
         <div class="small-12 large-12 columns">
             {% for key,game in games %}
                 <div class="row panel">
-                    <div class="small-12 large-4 columns text-center">
-                        <h3>{{ game.teamA.name }} : {{ game.scoreTeamA }}</h3>
-
-                        <h3>{{ game.teamB.name }} : {{ game.scoreTeamB }}</h3>
+                    <div class="small-12 large-4 columns">
+                        <h3 class="bgcolor text-center">
+                            {{ game.teamA.name }} : <span class="score">{{ game.scoreTeamA }}</span>
+                            <br/>
+                            <small>
+                                {{ 'views.worldcup.score.index.versus'|trans }}
+                            </small>
+                            </br>
+                            {{ game.teamB.name }} : <span class="score">{{ game.scoreTeamB }}</span>
+                        </h3>
                     </div>
                     <div class="small-12 large-8 columns text-center">
                         {% for key,score in tabscore[game.id] %}
-                            <div class="row panel">
-                                <div class="small-6 columns text-center">
-                                    {{ score['user'] }}
+                            <div class="score">
+                                <div class="row">
+                                    <div class="small-6 columns text-center">
+                                        <h6 class="primarycolor">{{ score['user'] }}</h6>
+                                    </div>
+                                    <div class="small-3 columns text-center">
+                                        <h6 class="primarycolor">{{ score['score'] }}</h6>
+                                    </div>
+                                    <div class="small-3 columns text-center">
+                                        <h6 class="primarycolor">
+                                            {{ score['points'] }}{{ 'views.worldcup.score.index.point'|trans }}
+                                        </h6>
+                                    </div>
                                 </div>
-                                <div class="small-3 columns text-center">
-                                    {{ score['score'] }}
-                                </div>
-                                <div class="small-3 columns text-center">
-                                    {{ score['points'] }}
-                                </div>
+                                <hr>
                             </div>
                         {% endfor %}
                     </div>
                 </div>
                 <hr>
             {% endfor %}
+            {% if games|length == 0 %}
+                <div class="row panel">
+                    <div class="small-12 large-12 columns text-center alert-box warning">
+                        <h3>
+                            {{ 'views.worldcup.score.index.noresult'|trans }}
+                        </h3>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 

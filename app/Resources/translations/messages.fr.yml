@@ -7,7 +7,7 @@ button:
     find: "rechercher"
     close: "Fermer"
     bet: "Parier"
-    maybego: "Alors Pret à tentez votre chance ?"
+    maybego: "Alors, Prêt à tenter votre chance ?"
 link:
     return: "Retour à la liste"
 views:
@@ -19,15 +19,9 @@ views:
         logout: "Déconnexion"
         identity: "S'identifier"
         edit: "Mes infos"
-        userlist: "Utilisateurs"
-        opinionlevel: "Niveau Avis"
-        admin: "Administration"
-        typebutchery: "Type de boucherie"
-        typemeat: "Type de viande"
-        butchery: "Boucheries"
-        opinion: "Les Avis"
         game: "Les matches"
         score: "Les Scores"
+        userbet: "Les paris"
     HWIOAuthBundle:
         connect:
             login:
