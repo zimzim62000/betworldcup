@@ -37,7 +37,7 @@ views:
                 login: "connexion"
                 register: "inscription"
     footer:
-        title: "Centaure systems"
+        anytrouble: "Si vous rencontrez un problème, n'hésitez pas à m'envoyer un message à zimzim62000[at]gmail.com"
 grid:
     filter:
         disabled: "Cacher"
