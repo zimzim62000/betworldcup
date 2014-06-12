@@ -2,87 +2,129 @@
 @import "normalize";
 @import "foundation";
 
-html, body{
+html, body {
     height: 100%;
 }
-div.container{
+
+div.container {
     hight: auto;
     min-height: 100%;
     padding-bottom: 150px;
 }
 
-footer.footer{
+footer.footer {
     background: $topbar-bg-color;
     height: 150px;
     margin-top: -150px;
-    clear:both;
+    clear: both;
     max-width: 100%;
-    h5{
-        small{
+    h5 {
+        small {
             padding: 0 2rem;
         }
     }
-    h4{
+    h4 {
         color: #FFF;
         padding: 2rem;
     }
 }
-.top-bar .name{
+
+.top-bar .name {
     line-height: 45px;
-    a{
+    a {
         color: #FFF;
         padding: 0 1rem;
     }
 }
-table.width-100{
-    width :100%;
+
+table.width-100 {
+    width: 100%;
 }
-.full-width{
+
+.full-width {
     max-width: 100%;
 }
-.bgcolor{
+
+.bgcolor {
     color: $body-bg !important;
 }
-.bgcolor:hover{
+
+.bgcolor:hover {
     color: $body-bg !important;
 }
-.primarycolor{
+
+.primarycolor {
     color: $primary-color !important;
 }
-.bluecolor{
+.whitecolor {
+    color: $white !important;
+}
+
+.bluecolor {
     color: $blue;
 }
-h1.headerpagehome{
+
+h1.headerpagehome {
     font-size: 1.85rem;
     padding: 2rem 0 1rem 0;
 }
-h2.headerpagehome{
+
+h2.headerpagehome {
     font-size: 1.65rem;
     padding: 0 0 2rem 0;
 }
-p.p-large{
+
+p.p-large {
     font-size: 1.15rem;
     padding: 1.5rem 0.25rem;
 }
+
 ul.grid-row-actions li a {
     font-weight: bold;
 }
+
 ul.grid-row-actions li a:hover {
     font-weight: bold;
     color: $secondary-color;
 }
-div.score{
-    hr{
-        padding: 0;
-        margin: 0.5rem 0;
-    }
-    padding: 0.5rem;
-    h6{
+
+div.score {
+    padding: 0.45rem;
+    border-top: 1px SOLID $primary-color;
+    border-right: 1px SOLID $primary-color;
+    border-left: 1px SOLID $primary-color;
+    h6.username {
         padding: 0;
         margin: 0;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+    h6.score {
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+        font-size: 1.25rem;
     }
 }
-span.score{
+
+div.score:hover {
+    background: $body-bg;
+}
+
+div.score.scorelast {
+    border-top: 1px SOLID $primary-color;
+    border-right: 1px SOLID $primary-color;
+    border-left: 1px SOLID $primary-color;
+    border-bottom: 1px SOLID $primary-color;
+}
+
+span.score {
     font-weight: bold;
     color: $white;
+}
+
+span.versus {
+    font-weight: bold;
+    color: $primary-color;
+    line-height: 1.6875rem;
 }

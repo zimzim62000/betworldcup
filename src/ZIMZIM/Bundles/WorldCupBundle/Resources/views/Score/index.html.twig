@@ -22,35 +22,44 @@
     <div class="row">
         <div class="small-12 large-12 columns">
             {% for key,game in games %}
-                <div class="row panel">
-                    <div class="small-12 large-4 columns">
+                <div class="row ">
+                    <div class="small-centered small-10 columns panel">
                         <h3 class="bgcolor text-center">
                             {{ game.teamA.name }} : <span class="score">{{ game.scoreTeamA }}</span>
-                            <br/>
-                            <small>
+                            <span class="versus">
                                 {{ 'views.worldcup.score.index.versus'|trans }}
-                            </small>
-                            </br>
+                            </span>
                             {{ game.teamB.name }} : <span class="score">{{ game.scoreTeamB }}</span>
                         </h3>
                     </div>
-                    <div class="small-12 large-8 columns text-center">
+                </div>
+                <div class="row ">
+                    <div class="small-centered small-10 columns text-center panel">
                         {% for key,score in tabscore[game.id] %}
-                            <div class="score">
+                            {% set last = tabscore[game.id]|length - 1 %}
+                            <div class="score {% if last == key %}scorelast{% endif %}">
                                 <div class="row">
                                     <div class="small-6 columns text-center">
-                                        <h6 class="primarycolor">{{ score['user'] }}</h6>
+                                        <h6 class="primarycolor username">{{ score['user'] }}</h6>
                                     </div>
-                                    <div class="small-3 columns text-center">
-                                        <h6 class="primarycolor">{{ score['score'] }}</h6>
+                                    <div class="small-6 columns show-for-small text-center">
+                                        <h6 class="whitecolor score">{{ score['score'] }}</h6>
                                     </div>
-                                    <div class="small-3 columns text-center">
-                                        <h6 class="primarycolor">
+                                    <div class="small-12 columns show-for-small text-center">
+                                        <h6 class="primarycolor score">
+                                            {{ score['points'] }}{{ 'views.worldcup.score.index.point'|trans }}
+                                        </h6>
+                                    </div>
+                                    <div class="medium-3 columns hide-for-small text-center">
+                                        <h6 class="whitecolor score">{{ score['score'] }}</h6>
+                                    </div>
+                                    <div class="medium-3 columns hide-for-small text-center">
+                                        <h6 class="primarycolor score">
                                             {{ score['points'] }}{{ 'views.worldcup.score.index.point'|trans }}
                                         </h6>
                                     </div>
                                 </div>
-                                <hr>
+
                             </div>
                         {% endfor %}
                     </div>

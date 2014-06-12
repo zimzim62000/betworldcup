@@ -10,7 +10,7 @@ class GamePoint
 
     const MAX_POINT = 3;
     const POINT = 1;
-    const NULL = null;
+    const NULL = 0;
 
     /**
      * @var ZIMZIM\Bundles\WorldCupBundle\Entity\UserBet

@@ -6448,14 +6448,14 @@ html, body {
   height: 100%;
 }
 
-/* line 8, ../scss/css.scss */
+/* line 9, ../scss/css.scss */
 div.container {
   hight: auto;
   min-height: 100%;
   padding-bottom: 150px;
 }
 
-/* line 14, ../scss/css.scss */
+/* line 15, ../scss/css.scss */
 footer.footer {
   background: #f8c300;
   height: 150px;
@@ -6463,102 +6463,134 @@ footer.footer {
   clear: both;
   max-width: 100%;
 }
-/* line 21, ../scss/css.scss */
+/* line 22, ../scss/css.scss */
 footer.footer h5 small {
   padding: 0 2rem;
 }
-/* line 25, ../scss/css.scss */
+/* line 26, ../scss/css.scss */
 footer.footer h4 {
   color: #FFF;
   padding: 2rem;
 }
 
-/* line 30, ../scss/css.scss */
+/* line 32, ../scss/css.scss */
 .top-bar .name {
   line-height: 45px;
 }
-/* line 32, ../scss/css.scss */
+/* line 34, ../scss/css.scss */
 .top-bar .name a {
   color: #FFF;
   padding: 0 1rem;
 }
 
-/* line 37, ../scss/css.scss */
+/* line 40, ../scss/css.scss */
 table.width-100 {
   width: 100%;
 }
 
-/* line 40, ../scss/css.scss */
+/* line 44, ../scss/css.scss */
 .full-width {
   max-width: 100%;
 }
 
-/* line 43, ../scss/css.scss */
+/* line 48, ../scss/css.scss */
 .bgcolor {
   color: #00923f !important;
 }
 
-/* line 46, ../scss/css.scss */
+/* line 52, ../scss/css.scss */
 .bgcolor:hover {
   color: #00923f !important;
 }
 
-/* line 49, ../scss/css.scss */
+/* line 56, ../scss/css.scss */
 .primarycolor {
   color: #f8c300 !important;
 }
 
-/* line 52, ../scss/css.scss */
+/* line 59, ../scss/css.scss */
+.whitecolor {
+  color: white !important;
+}
+
+/* line 63, ../scss/css.scss */
 .bluecolor {
   color: #0c52ad;
 }
 
-/* line 55, ../scss/css.scss */
+/* line 67, ../scss/css.scss */
 h1.headerpagehome {
   font-size: 1.85rem;
   padding: 2rem 0 1rem 0;
 }
 
-/* line 59, ../scss/css.scss */
+/* line 72, ../scss/css.scss */
 h2.headerpagehome {
   font-size: 1.65rem;
   padding: 0 0 2rem 0;
 }
 
-/* line 63, ../scss/css.scss */
+/* line 77, ../scss/css.scss */
 p.p-large {
   font-size: 1.15rem;
   padding: 1.5rem 0.25rem;
 }
 
-/* line 67, ../scss/css.scss */
+/* line 82, ../scss/css.scss */
 ul.grid-row-actions li a {
   font-weight: bold;
 }
 
-/* line 70, ../scss/css.scss */
+/* line 86, ../scss/css.scss */
 ul.grid-row-actions li a:hover {
   font-weight: bold;
   color: #fff71c;
 }
 
-/* line 74, ../scss/css.scss */
+/* line 91, ../scss/css.scss */
 div.score {
-  padding: 0.5rem;
+  padding: 0.45rem;
+  border-top: 1px SOLID #f8c300;
+  border-right: 1px SOLID #f8c300;
+  border-left: 1px SOLID #f8c300;
 }
-/* line 75, ../scss/css.scss */
-div.score hr {
-  padding: 0;
-  margin: 0.5rem 0;
-}
-/* line 80, ../scss/css.scss */
-div.score h6 {
+/* line 96, ../scss/css.scss */
+div.score h6.username {
   padding: 0;
   margin: 0;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+/* line 102, ../scss/css.scss */
+div.score h6.score {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
 
-/* line 85, ../scss/css.scss */
+/* line 110, ../scss/css.scss */
+div.score:hover {
+  background: #00923f;
+}
+
+/* line 114, ../scss/css.scss */
+div.score.scorelast {
+  border-top: 1px SOLID #f8c300;
+  border-right: 1px SOLID #f8c300;
+  border-left: 1px SOLID #f8c300;
+  border-bottom: 1px SOLID #f8c300;
+}
+
+/* line 121, ../scss/css.scss */
 span.score {
   font-weight: bold;
   color: white;
+}
+
+/* line 126, ../scss/css.scss */
+span.versus {
+  font-weight: bold;
+  color: #f8c300;
+  line-height: 1.6875rem;
 }

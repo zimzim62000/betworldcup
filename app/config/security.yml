@@ -59,6 +59,8 @@ security:
         - { path: ^/game/edit, role: ROLE_ADMIN }
         - { path: ^/game/[0-9]*/update, role: ROLE_ADMIN }
         - { path: ^/game/[0-9]*/delete, role: ROLE_ADMIN }
+        - { path: ^/game/$, role: ROLE_USER }
+        - { path: ^/game/[0-9]/[a-z]*, role: ROLE_USER }
         - { path: ^/userbet/$, role: ROLE_ADMIN }
         - { path: ^/userbet/game/[0-9]*/bet/, role: ROLE_USER }
         - { path: ^/score/$, role: ROLE_USER }
