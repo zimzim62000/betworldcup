@@ -3,6 +3,9 @@ site:
         small: www.parierentreamis.fr
         long: www.parierentreamis.fr, le site de paris entre amis !
         beta: beta
+grid:
+    columns:
+        myscore: Mes scores
 views:
     worldcup:
         default:
