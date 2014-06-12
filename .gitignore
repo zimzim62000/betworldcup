@@ -32,3 +32,9 @@ web/built/js/*
 web/built/css/*
 !web/built/js/.gitkeep
 !web/built/css/.gitkeep
+
+web/app/js/*
+web/app/css/*
+!web/app/js/.gitkeep
+!web/app/css/.gitkeep
+
