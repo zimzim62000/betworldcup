@@ -37,7 +37,7 @@ views:
                 login: "connexion"
                 register: "inscription"
     footer:
-        anytrouble: "Si vous rencontrez un problème, n'hésitez pas à m'envoyer un message à zimzim62000[at]gmail.com"
+        anytrouble: "Si vous rencontrez un problème, n'hésitez pas à envoyer un message à zimzim62000[at]gmail.com, merci"
 grid:
     filter:
         disabled: "Cacher"
