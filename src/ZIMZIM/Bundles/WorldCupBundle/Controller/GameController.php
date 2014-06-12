@@ -3,7 +3,9 @@
 namespace ZIMZIM\Bundles\WorldCupBundle\Controller;
 
 use APY\DataGridBundle\Grid\Action\RowAction;
+use APY\DataGridBundle\Grid\Column\TextColumn;
 use Symfony\Component\HttpFoundation\Request;
+use ZIMZIM\Bundles\WorldCupBundle\Entity\UserBet;
 use ZIMZIM\Controller\ZimzimController;
 
 use ZIMZIM\Bundles\WorldCupBundle\Entity\Game;
@@ -26,9 +28,11 @@ class GameController extends ZimzimController
             'entity' => 'ZIMZIMBundlesWorldCupBundle:Game',
         );
 
-        $source =$this->gridList($data, false);
+        $user = $this->container->get('security.context')->getToken()->getUser();
 
-        /** @var $this->grid \APY\DataGridBundle\Grid\Grid */
+        $source = $this->gridList($data, false);
+
+        /** @var $this ->grid \APY\DataGridBundle\Grid\Grid */
         $columns = $this->grid->getColumns();
 
         $columns->setColumnsOrder(array('type', 'teamA.name', 'scoreTeamA', 'scoreTeamB', 'teamB.name', 'date'));
@@ -40,9 +44,27 @@ class GameController extends ZimzimController
             $this->container->get('security.context')
         );
 
+        $MyTypedColumn = new TextColumn(array(
+            'id' => 'myscore',
+            'title' => 'grid.columns.myscore',
+            'source' => false,
+            'filterable' => false,
+            'sortable' => false
+        ));
+        $this->grid->addColumn($MyTypedColumn);
+
         $source->manipulateRow(
-            function ($row)
-            {
+            function ($row) use ($em, $user) {
+                $userbet = $em->getRepository('ZIMZIMBundlesWorldCupBundle:UserBet')->findOneBy(
+                    array(
+                        'user' => $user,
+                        'game' => $row->getField('id')
+                    )
+                );
+                if ($userbet instanceof UserBet) {
+                    $row->setField('myscore', $userbet->getScoreTeamA() . ' - ' . $userbet->getScoreTeamB());
+                }
+
                 return $row;
             }
         );
@@ -57,7 +79,7 @@ class GameController extends ZimzimController
         $rowAction->setRouteParameters(array('id'));
         $this->grid->addRowAction($rowAction);
 
-        if(true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')){
+        if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
             $rowAction = new RowAction("button.update", 'zimzim_worldcup_game_edit');
             $rowAction->setRouteParameters(array('id'));
             $this->grid->addRowAction($rowAction);
