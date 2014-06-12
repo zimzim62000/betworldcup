@@ -43,8 +43,6 @@ class GameController extends ZimzimController
         $source->manipulateRow(
             function ($row)
             {
-                //\Doctrine\Common\Util\Debug::dump($row);die;
-
                 return $row;
             }
         );

@@ -5,3 +5,9 @@ views:
                 title: "Mon compte, ici gérer l'intégralité de vos informations."
             edit:
                 title: Modifier mes informations
+form:
+    user:
+        form:
+            type:
+                profileusertype:
+                    label: Mot de passe ( laisser vide si pas de modification )
