@@ -30,8 +30,8 @@ views:
             index:
                 title: "Liste des scores de la partie"
                 noresult: "Il n'y a pas encore de résultats publiés !"
-                versus: "vs"
-                forgot: "3 points si réponse exacte et 1 point pour une bonne réponse."
+                versus: "-"
+                forgot: "3 points pour score exacte et 1 point avoir trouver le resultat du match (Victoire ou Null)"
                 point: ""
         userbet:
             new:

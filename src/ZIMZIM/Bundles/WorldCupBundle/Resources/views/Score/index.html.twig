@@ -17,19 +17,23 @@
             </h2>
         </div>
     </div>
-
-
     <div class="row">
         <div class="small-12 large-12 columns">
             {% for key,game in games %}
                 <div class="row ">
                     <div class="small-centered small-10 columns panel">
                         <h3 class="bgcolor text-center">
-                            {{ game.teamA.name }} : <span class="score">{{ game.scoreTeamA }}</span>
+                            <span class="text-left">
+                                {{ game.teamA.name }}
+                                <span class="score">{{ game.scoreTeamA }}</span>
+                            </span>
                             <span class="versus">
                                 {{ 'views.worldcup.score.index.versus'|trans }}
                             </span>
-                            {{ game.teamB.name }} : <span class="score">{{ game.scoreTeamB }}</span>
+                             <span class="text-right">
+                                 <span class="score">{{ game.scoreTeamB }}</span>
+                                {{ game.teamB.name }}
+                             </span>
                         </h3>
                     </div>
                 </div>
@@ -77,5 +81,4 @@
             {% endif %}
         </div>
     </div>
-
 {% endblock %}

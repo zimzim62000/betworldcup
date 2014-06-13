@@ -3,12 +3,12 @@
 namespace ZIMZIM\Bundles\WorldCupBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use APY\DataGridBundle\Grid\Mapping as GRID;
 /**
  * UserBet
  *
  * @ORM\Table(name="worldcup_userbets")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="UserBetRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class UserBet
@@ -19,11 +19,15 @@ class UserBet
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @GRID\Column(visible=false, sortable=false, filterable=false)
      */
     private $id;
 
     /**
      * @var integer
+     *
+     * @GRID\Column(field="game.teamA.name", title="Equipe A",operatorsVisible=false, source=true, filter="select")
+     * @GRID\Column(field="game.teamB.name", title="Equipe B",operatorsVisible=false, source=true, filter="select")
      *
      * @ORM\ManyToOne(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\Game", inversedBy="gameBets")
      * @ORM\JoinColumn(name="id_game", referencedColumnName="id", nullable=false)
@@ -33,6 +37,8 @@ class UserBet
     /**
      * @var integer
      *
+     * @GRID\Column(field="user.username", title="User",operatorsVisible=false, source=true, filter="select")
+     *
      * @ORM\ManyToOne(targetEntity="ZIMZIM\Bundles\UserBundle\Entity\user", inversedBy="userBets")
      * @ORM\JoinColumn(name="id_user", referencedColumnName="id", nullable=false)
      */
@@ -41,6 +47,8 @@ class UserBet
     /**
      * @var integer
      *
+     * @GRID\Column(title="scoreTeamA",operatorsVisible=false)
+     *
      * @ORM\Column(name="scoreTeamA", type="integer")
      */
     private $scoreTeamA;
@@ -48,12 +56,16 @@ class UserBet
     /**
      * @var integer
      *
+     * @GRID\Column(title="scoreTeamB",operatorsVisible=false)
+     *
      * @ORM\Column(name="scoreTeamB", type="integer")
      */
     private $scoreTeamB;
 
     /**
      * @var \DateTime
+     *
+     * @GRID\Column(title="date",operatorsVisible=false)
      *
      * @ORM\Column(name="date", type="datetime")
      */
