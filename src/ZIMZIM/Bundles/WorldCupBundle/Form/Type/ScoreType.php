@@ -24,7 +24,9 @@ class ScoreType extends AbstractType
                 'choices' => $data,
                 'attr' => array(
                     'label-inline' => 'label-inline',
-                )
+                ),
+                'empty_value' => '',
+                'required' => false
             )
         );
     }

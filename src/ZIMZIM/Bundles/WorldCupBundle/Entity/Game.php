@@ -90,6 +90,7 @@ class Game
      */
     private $gameBets;
 
+
     public function __construct(){
         $this->gameBets = new ArrayCollection();
     }
@@ -255,7 +256,4 @@ class Game
     {
         return $this->gameBets;
     }
-
-
-
 }

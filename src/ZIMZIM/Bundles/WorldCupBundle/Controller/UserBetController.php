@@ -2,12 +2,11 @@
 
 namespace ZIMZIM\Bundles\WorldCupBundle\Controller;
 
+use APY\DataGridBundle\Grid\Column\TextColumn;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use ZIMZIM\Controller\ZimzimController;
-
 use ZIMZIM\Bundles\WorldCupBundle\Entity\UserBet;
-use ZIMZIM\Bundles\WorldCupBundle\Form\UserBetType;
+
 
 /**
  * UserBet controller.
@@ -22,11 +21,23 @@ class UserBetController extends ZimzimController
      */
     public function indexAction()
     {
+        $em = $this->container->get('doctrine')->getManager();
+
         $data = array(
             'entity' => 'ZIMZIMBundlesWorldCupBundle:UserBet',
         );
 
-        $this->gridList($data);
+        $source = $this->gridList($data);
+
+        $em->getRepository('ZIMZIMBundlesWorldCupBundle:UserBet')->getDataUserBetGame(
+            $source,
+            $this->container->get('security.context')
+        );
+
+        /** @var $this ->grid \APY\DataGridBundle\Grid\Grid */
+        $columns = $this->grid->getColumns();
+
+        $columns->setColumnsOrder(array('game.teamA.name', 'scoreTeamA', 'scoreTeamB', 'game.teamB.name', 'date'));
 
         return $this->grid->getGridResponse('ZIMZIMBundlesWorldCupBundle:UserBet:index.html.twig');
     }
