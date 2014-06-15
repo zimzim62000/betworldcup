@@ -2,6 +2,8 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
+
+
 //
 // FOUNDATION SETTINGS
 //
@@ -38,17 +40,20 @@
 
 /********************/
 $black: #000000;
-$blue: #0C52AD;
+$blue: #596AB4;
 $white: #FFFFFF;
-$green: #00923F;
-$sable: #FFE896;
-$yellow: #F8C300;
+$green: #3DA964;
+$sable: #F9F5D1;//#F9F092;
+$yellow: #F3BD36;
 // Global
+
+
+@import url(http://fonts.googleapis.com/css?family=Electrolize);
 
 // We use these to control various global styles
 $body-bg: $sable;
 $body-font-color: $green;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: 'Electrolize', sans-serif;//"Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -151,7 +156,7 @@ $header-font-color: $primary-color;
 
 // A general <small> styling
 // $small-font-size: 60%;
-// $small-font-color: scale-color($header-font-color, $lightness: 35%);
+$small-font-color: scale-color($header-font-color, $lightness: -35%);
 
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
@@ -1080,25 +1085,25 @@ $panel-bg: $blue;
 // $include-html-table-classes: $include-html-classes;
 
 // These control the background color for the table and even rows
-$table-bg: $blue;
-$table-even-row-bg: scale-color($table-bg, $lightness: 10%);
+$table-bg: $sable;
+$table-even-row-bg: scale-color($table-bg, $lightness: -10%);
 
 // These control the table cell border style
 // $table-border-style: solid;
 // $table-border-size: 1px;
-$table-border-color: $primary-color;
+$table-border-color: $yellow;
 
 // These control the table head styles
 // $table-head-bg: #f5f5f5  ;
 // $table-head-font-size: rem-calc(14);
-$table-head-font-color: $primary-color;
+$table-head-font-color: $black;
 // $table-head-font-weight: bold;
 // $table-head-padding: rem-calc(8 10 10);
 
 // These control the row padding and font styles
 // $table-row-padding: rem-calc(9 10);
 // $table-row-font-size: rem-calc(14);
-$table-row-font-color: $primary-color;
+$table-row-font-color: $black;
 // $table-line-height: rem-calc(18);
 
 // These are for controlling the display and margin of tables

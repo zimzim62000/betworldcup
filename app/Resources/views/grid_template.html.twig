@@ -111,7 +111,7 @@
         {% if grid.totalCount > 0 or grid.isFiltered or grid.noDataMessage is sameas(false) %}
             <form id="{{ grid.hash }}" action="{{ grid.routeUrl }}" method="post">
                 <div class="grid_body large-12">
-                    <table class="width-100 panel">
+                    <table class="width-100">
                         {% if grid.isTitleSectionVisible %}
                             {{ grid_titles(grid) }}
                         {% endif %}

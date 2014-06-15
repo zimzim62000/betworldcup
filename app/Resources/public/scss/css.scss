@@ -13,7 +13,7 @@ div.container {
 }
 
 footer.footer {
-    background: $yellow;
+    background: $green;
     height: 150px;
     margin-top: -150px;
     clear: both;
@@ -59,14 +59,15 @@ table.width-100 {
 .whitecolor {
     color: $white !important;
 }
-
+.blackcolor {
+    color: $black !important;
+}
 .bluecolor {
     color: $blue;
 }
 .secondarycolor{
     color: $secondary-color !important;
 }
-
 h1.headerpagehome {
     font-size: 1.85rem;
     padding: 2rem 0 1rem 0;
@@ -138,4 +139,12 @@ span.versus {
 }
 .paddingtopbot{
     padding: 1rem 0;
+}
+.sstitle{
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: $blue;
+    padding: 2rem 0 1rem 0;
 }

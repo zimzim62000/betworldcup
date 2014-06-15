@@ -14,7 +14,9 @@
         <META NAME="description" CONTENT="{% block metadescription %}{% endblock metadescription %}">
         {% block stylesheets %}
             {% if app.environment == 'prod' %}
-                <link rel="stylesheet" href="{{ asset('built/css/min.css') }}"" />
+                {% stylesheets 'built/css/min.css' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+                {% endstylesheets %}
             {% else %}
                 {% stylesheets 'app/css/css.css' 'app/css/app.css' filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
@@ -56,7 +58,9 @@
     {% endblock body %}
     {% block javascripts %}
         {% if app.environment == 'prod' %}
-            <script type="text/javascript" src="{{ asset('built/js/min.js') }}"></script>
+            {% javascripts 'built/js/min.js'%}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
         {% else %}
             {% javascripts 'app/js/jquery.min.js' 'app/js/hammer.jquery.js'  'app/js/modernizr.js' 'app/js/app.js' 'app/js/foundation.min.js' 'app/js/foundation.topbar.js'%}
             <script type="text/javascript" src="{{ asset_url }}"></script>

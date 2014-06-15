@@ -1,4 +1,5 @@
 /********************/
+@import url(http://fonts.googleapis.com/css?family=Electrolize);
 /* line 5, ../scss/app.scss */
 span.logo-small-tiers {
   width: 40px;
@@ -34,7 +35,7 @@ span.beta {
   display: inline-block;
   padding: 0 0 0 0.2rem;
   font-weight: bold;
-  color: #ffe896;
+  color: #f9f5d1;
   -webkit-transition: all 1.5s;
   transition: all 1.5s;
   text-decoration: underline;

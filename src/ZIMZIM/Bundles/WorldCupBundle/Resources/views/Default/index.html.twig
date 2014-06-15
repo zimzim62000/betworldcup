@@ -17,11 +17,11 @@
 
     <div class="row">
         <div class="small-12 columns">
-            <h3 class="text-center bluecolor">
+            <h3 class="text-center">
                 {{ 'views.worldcup.default.index.soustitle1'|trans }}
             </h3>
 
-            <p class="bluecolor p-large">
+            <p class="blackcolor p-large">
                 {{ 'views.worldcup.default.index.who'|trans|raw }}
             </p>
 
@@ -43,13 +43,9 @@
     {% if is_granted('ROLE_USER') %}
         <div class="row">
             <div class="small-10 small-centered columns text-center ">
-                <div class="row">
-                    <div class="small-12 small-centered columns text-center">
-                        <h3 class="whitecolor paddingtopbot">
-                            {{ 'views.worldcup.default.index.gameoftheday'|trans|raw }}
-                        </h3>
-                    </div>
-                </div>
+                <h3 class="blackcolor sstitle text-left">
+                    {{ 'views.worldcup.default.index.gameoftheday'|trans|raw }}
+                </h3>
                 {% for game in games %}
                     <div class="row panel">
                         <div class="small-8 medium-6 columns text-center">
@@ -79,8 +75,8 @@
 
 
         <div class="row">
-            <div class="small-12 small-centered columns text-center">
-                <h3 class="whitecolor paddingtopbot">
+            <div class="medium-centered small-12 medium-10 columns text-left">
+                <h3 class="blackcolor sstitle">
                     {{ 'views.worldcup.default.index.ranking'|trans|raw }}
                 </h3>
             </div>
