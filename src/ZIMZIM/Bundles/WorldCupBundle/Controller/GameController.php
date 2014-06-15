@@ -6,6 +6,8 @@ use APY\DataGridBundle\Grid\Action\RowAction;
 use APY\DataGridBundle\Grid\Column\TextColumn;
 use Symfony\Component\HttpFoundation\Request;
 use ZIMZIM\Bundles\WorldCupBundle\Entity\UserBet;
+use ZIMZIM\Bundles\WorldCupBundle\Event\ScoreEvent;
+use ZIMZIM\Bundles\WorldCupBundle\ZIMZIMWorldCupEvents;
 use ZIMZIM\Controller\ZimzimController;
 
 use ZIMZIM\Bundles\WorldCupBundle\Entity\Game;
@@ -81,6 +83,10 @@ class GameController extends ZimzimController
 
         if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
             $rowAction = new RowAction("button.update", 'zimzim_worldcup_game_edit');
+            $rowAction->setRouteParameters(array('id'));
+            $this->grid->addRowAction($rowAction);
+
+            $rowAction = new RowAction("button.updatescore", 'zimzim_worldcup_game_editscore');
             $rowAction->setRouteParameters(array('id'));
             $this->grid->addRowAction($rowAction);
         }
@@ -242,6 +248,29 @@ class GameController extends ZimzimController
     }
 
     /**
+     * Creates a form to edit a Game entity.
+     *
+     * @param Game $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createScoreEditForm(Game $entity)
+    {
+        $form = $this->createForm(
+            'zimzim_bundles_worldcupbundle_gamescoretype',
+            $entity,
+            array(
+                'action' => $this->generateUrl('zimzim_worldcup_game_updatescore', array('id' => $entity->getId())),
+                'method' => 'PUT',
+            )
+        );
+
+        $form->add('submit', 'submit', array('label' => 'button.update'));
+
+        return $form;
+    }
+
+    /**
      * Edits an existing Game entity.
      *
      */
@@ -261,7 +290,13 @@ class GameController extends ZimzimController
 
         if ($editForm->isValid()) {
             $this->updateSuccess();
-            $em->flush();
+            //$em->flush();
+
+            /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+            $dispatcher = $this->container->get('event_dispatcher');
+            $scoreEvent = $this->container->get('zimzim_bundles_worldcup.event.scoreevent');
+            $scoreEvent->setGame($entity);
+            $dispatcher->dispatch(ZIMZIMWorldCupEvents::UPDATE_SCORE, $scoreEvent);
 
             return $this->redirect($this->generateUrl('zimzim_worldcup_game_edit', array('id' => $id)));
         }
@@ -315,5 +350,74 @@ class GameController extends ZimzimController
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'button.delete'))
             ->getForm();
+    }
+
+
+    /**
+     * Displays a form to edit an existing Game entity.
+     *
+     */
+    public function editScoreAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Game entity.');
+        }
+
+        $editForm = $this->createScoreEditForm($entity);
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render(
+            'ZIMZIMBundlesWorldCupBundle:Game:edit.html.twig',
+            array(
+                'entity' => $entity,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            )
+        );
+    }
+
+    /**
+     * Edits an existing Game entity.
+     *
+     */
+    public function updateScoreAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Game entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createScoreEditForm($entity);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $this->updateSuccess();
+            $em->flush();
+
+            /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+            $dispatcher = $this->container->get('event_dispatcher');
+            $scoreEvent = $this->container->get('zimzim_bundles_worldcup.event.scoreevent');
+            $scoreEvent->setGame($entity);
+            $dispatcher->dispatch(ZIMZIMWorldCupEvents::UPDATE_SCORE, $scoreEvent);
+
+            return $this->redirect($this->generateUrl('zimzim_worldcup_game_editscore', array('id' => $id)));
+        }
+
+        return $this->render(
+            'ZIMZIMBundlesWorldCupBundle:Game:edit.html.twig',
+            array(
+                'entity' => $entity,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            )
+        );
     }
 }

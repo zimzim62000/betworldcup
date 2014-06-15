@@ -28,3 +28,12 @@ zimzim_worldcup_game_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Game:delete" }
     requirements: { _method: post|delete }
+
+zimzim_worldcup_game_editscore:
+    pattern:  /{id}/editscore
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Game:editscore" }
+
+zimzim_worldcup_game_updatescore:
+    pattern:  /{id}/updatescore
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Game:updatescore" }
+    requirements: { _method: post|put }

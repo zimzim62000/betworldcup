@@ -10,8 +10,26 @@ services:
         class: ZIMZIM\Bundles\WorldCupBundle\Form\UserBetType
         tags:
             - { name: form.type, alias: zimzim_bundles_worldcupbundle_userbettype }
+    zimzim_bundles_worldcup.gamescoretype:
+        class: ZIMZIM\Bundles\WorldCupBundle\Form\GameScoreType
+        tags:
+            - { name: form.type, alias: zimzim_bundles_worldcupbundle_gamescoretype }
     zimzim_bundles_worldcup.calculate.score:
         class: ZIMZIM\Bundles\WorldCupBundle\Calculate\Score
-        arguments: [ @doctrine.orm.entity_manager, @zimzim_bundles_worldcup.calculate.gamepoint ]
+        arguments: [ @doctrine.orm.entity_manager, @zimzim_bundles_worldcup.calculate.gamepoint, @zimzim_bundles_worldcup.entity.score ]
     zimzim_bundles_worldcup.calculate.gamepoint:
         class: ZIMZIM\Bundles\WorldCupBundle\Calculate\GamePoint
+    zimzim_bundles_worldcup.entity.score:
+        class: ZIMZIM\Bundles\WorldCupBundle\Entity\Score
+    zimzim_bundles_worldcup.listener.scoresubscriber:
+        class: ZIMZIM\Bundles\WorldCupBundle\EventListener\ScoreSubscriber
+        arguments: [ @doctrine.orm.entity_manager, @zimzim_bundles_worldcup.calculate.score ]
+        tags:
+            - { name: kernel.event_subscriber }
+    zimzim_bundles_worldcup.event.scoreevent:
+        class: ZIMZIM\Bundles\WorldCupBundle\Event\ScoreEvent
+    zimzim_bundles_worldcup.calculate.ranking:
+        class: ZIMZIM\Bundles\WorldCupBundle\Calculate\Ranking
+        arguments: [ @doctrine.orm.entity_manager, @zimzim_bundles_worldcup.calculate.userranking ]
+    zimzim_bundles_worldcup.calculate.userranking:
+        class: ZIMZIM\Bundles\WorldCupBundle\Calculate\UserRanking

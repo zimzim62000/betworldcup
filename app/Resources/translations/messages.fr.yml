@@ -8,6 +8,7 @@ button:
     close: "Fermer"
     bet: "Parier"
     maybego: "Alors, Prêt à tenter votre chance ?"
+    updatescore: "score"
 link:
     return: "Retour à la liste"
 views:
@@ -22,6 +23,7 @@ views:
         game: "Les matches"
         score: "Les Scores"
         userbet: "Les paris"
+        ranking: "Classement"
     HWIOAuthBundle:
         connect:
             login:

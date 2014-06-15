@@ -31,7 +31,8 @@ class GameRepository extends EntityRepository
         $query->where('g.date < :date')
             ->andWhere('g.scoreTeamA IS NOT NULL')
             ->andWhere('g.scoreTeamB IS NOT NULL')
-            ->setParameter('date', $date);
+            ->setParameter('date', $date)
+            ->orderBy('g.date', 'ASC');
         return $query->getQuery()->getResult();
     }
 }

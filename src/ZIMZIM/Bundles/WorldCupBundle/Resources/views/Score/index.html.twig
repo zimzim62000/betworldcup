@@ -32,34 +32,36 @@
                             </span>
                              <span class="text-right">
                                  <span class="score">{{ game.scoreTeamB }}</span>
-                                {{ game.teamB.name }}
+                                 {{ game.teamB.name }}
                              </span>
                         </h3>
                     </div>
                 </div>
                 <div class="row ">
                     <div class="small-centered small-10 columns text-center panel">
-                        {% for key,score in tabscore[game.id] %}
-                            {% set last = tabscore[game.id]|length - 1 %}
+                        {% for key,score in game.scores %}
+                            {% set last = game.scores|length - 1 %}
                             <div class="score {% if last == key %}scorelast{% endif %}">
                                 <div class="row">
                                     <div class="small-6 columns text-center">
-                                        <h6 class="primarycolor username">{{ score['user'] }}</h6>
+                                        <h6 class="primarycolor username">{{ score.user.username }}</h6>
                                     </div>
                                     <div class="small-6 columns show-for-small text-center">
-                                        <h6 class="whitecolor score">{{ score['score'] }}</h6>
+                                        <h6 class="whitecolor score">{{ score.userbet.scoreTeamA }}
+                                            - {{ score.userbet.scoreTeamB }}</h6>
                                     </div>
                                     <div class="small-12 columns show-for-small text-center">
                                         <h6 class="primarycolor score">
-                                            {{ score['points'] }}{{ 'views.worldcup.score.index.point'|trans }}
+                                            {{ score.score }}{{ 'views.worldcup.score.index.point'|trans }}
                                         </h6>
                                     </div>
                                     <div class="medium-3 columns hide-for-small text-center">
-                                        <h6 class="whitecolor score">{{ score['score'] }}</h6>
+                                        <h6 class="whitecolor score">{{ score.userbet.scoreTeamA }}
+                                            - {{ score.userbet.scoreTeamB }}</h6>
                                     </div>
                                     <div class="medium-3 columns hide-for-small text-center">
                                         <h6 class="primarycolor score">
-                                            {{ score['points'] }}{{ 'views.worldcup.score.index.point'|trans }}
+                                            {{ score.score }}{{ 'views.worldcup.score.index.point'|trans }}
                                         </h6>
                                     </div>
                                 </div>

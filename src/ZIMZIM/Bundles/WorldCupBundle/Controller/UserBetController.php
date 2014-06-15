@@ -37,7 +37,7 @@ class UserBetController extends ZimzimController
         /** @var $this ->grid \APY\DataGridBundle\Grid\Grid */
         $columns = $this->grid->getColumns();
 
-        $columns->setColumnsOrder(array('game.teamA.name', 'scoreTeamA', 'scoreTeamB', 'game.teamB.name', 'date'));
+        $columns->setColumnsOrder(array('game.teamA.name', 'scoreTeamA', 'scoreTeamB', 'game.teamB.name', 'user.username', 'updatedAt'));
 
         return $this->grid->getGridResponse('ZIMZIMBundlesWorldCupBundle:UserBet:index.html.twig');
     }

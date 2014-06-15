@@ -24,6 +24,12 @@
             {% if is_granted('ROLE_USER') %}
                 <li class="divider"></li>
                 <li class="">
+                    <a href="{{ path('zimzim_worldcup_score_ranking') }}">
+                        {{ 'views.navbar.ranking'|trans }}
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="">
                     <a href="{{ path('zimzim_worldcup_score') }}">
                         {{ 'views.navbar.score'|trans }}
                     </a>

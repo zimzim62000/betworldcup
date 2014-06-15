@@ -16,17 +16,28 @@ class ScoreController extends ZimzimController
     {
         $em = $this->container->get('doctrine')->getManager();
 
-        $calculate = $this->container->get('zimzim_bundles_worldcup.calculate.score');
-
         $games = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->getGamePlayedByDate(new \DateTime('now'));
 
         return $this->render(
             'ZIMZIMBundlesWorldCupBundle:Score:index.html.twig',
             array(
-                'games'    => $games,
-                'tabscore' => $calculate->calcul($games)
+                'games' => $games
             )
         );
     }
 
+
+    public function rankingAction(){
+
+        $calculateRanking = $this->container->get('zimzim_bundles_worldcup.calculate.ranking');
+
+        $ranking = $calculateRanking->calcul();
+
+        return $this->render(
+            'ZIMZIMBundlesWorldCupBundle:Score:ranking.html.twig',
+            array(
+                'rankings' => $ranking
+            )
+        );
+    }
 }

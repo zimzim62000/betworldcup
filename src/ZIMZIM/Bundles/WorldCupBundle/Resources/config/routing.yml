@@ -11,6 +11,11 @@ zimzim_worldcup_score:
     defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Score:index" }
     requirements: { _method: get }
 
+zimzim_worldcup_score_ranking:
+    pattern:  /ranking/
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Score:ranking" }
+    requirements: { _method: get }
+
 zimzim_bundles_worldcup_homepage:
     pattern:  /
     defaults: { _controller: ZIMZIMBundlesWorldCupBundle:Default:index }

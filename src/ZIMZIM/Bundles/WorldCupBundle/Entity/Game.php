@@ -90,9 +90,17 @@ class Game
      */
     private $gameBets;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\Score", mappedBy="game")
+     */
+    private $scores;
+
 
     public function __construct(){
         $this->gameBets = new ArrayCollection();
+        $this->scores = new ArrayCollection();
     }
 
 
@@ -256,4 +264,25 @@ class Game
     {
         return $this->gameBets;
     }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $scores
+     */
+    public function setScores($scores)
+    {
+        $this->scores = $scores;
+
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getScores()
+    {
+        return $this->scores;
+    }
+
+
+
 }

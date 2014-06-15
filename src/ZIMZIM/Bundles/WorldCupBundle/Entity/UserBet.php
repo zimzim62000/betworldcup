@@ -4,6 +4,8 @@ namespace ZIMZIM\Bundles\WorldCupBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use APY\DataGridBundle\Grid\Mapping as GRID;
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
  * UserBet
  *
@@ -39,7 +41,7 @@ class UserBet
      *
      * @GRID\Column(field="user.username", title="User",operatorsVisible=false, source=true, filter="select")
      *
-     * @ORM\ManyToOne(targetEntity="ZIMZIM\Bundles\UserBundle\Entity\user", inversedBy="userBets")
+     * @ORM\ManyToOne(targetEntity="ZIMZIM\Bundles\UserBundle\Entity\User", inversedBy="userBets")
      * @ORM\JoinColumn(name="id_user", referencedColumnName="id", nullable=false)
      */
     private $user;
@@ -62,15 +64,24 @@ class UserBet
      */
     private $scoreTeamB;
 
+
     /**
      * @var \DateTime
+     * @GRID\Column(title="date",operatorsVisible=false, visible=false)
      *
-     * @GRID\Column(title="date",operatorsVisible=false)
-     *
-     * @ORM\Column(name="date", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime")
      */
-    private $date;
+    private $createdAt;
 
+    /**
+     * @var \DateTime
+     * @GRID\Column(title="updatedAt",operatorsVisible=false)
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    private $updatedAt;
 
     /**
      * Get id
@@ -174,33 +185,43 @@ class UserBet
         return $this->scoreTeamB;
     }
 
+
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return UserBet
+     * @param \DateTime $createdAt
      */
-    public function setDate($date)
+    public function setCreatedAt($createdAt)
     {
-        $this->date = $date;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get date
-     *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDate()
+    public function getCreatedAt()
     {
-        return $this->date;
+        return $this->createdAt;
     }
 
-    /** @ORM\PrePersist */
-    public function doStuffOnPrePersist()
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
     {
-        $this->date = new \DateTime(date('Y-m-d H:m:s'));
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+
 
 }

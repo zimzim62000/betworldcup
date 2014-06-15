@@ -33,6 +33,12 @@ views:
                 versus: "-"
                 forgot: "3 points pour score exacte et 1 point avoir trouver le resultat du match (Victoire ou Null)"
                 point: ""
+            ranking:
+                title: "Classement du tournoi"
+                user: "username"
+                score: "pts"
+                nbmaxscore: "bonus"
+                rank: "Rang"
         userbet:
             new:
                 title: "Je parie !"

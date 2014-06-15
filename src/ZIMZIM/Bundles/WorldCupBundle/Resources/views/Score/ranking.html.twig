@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'views.worldcup.score.index.title'|trans }}
+{% endblock title %}
+
+{% block page %}
+    <div class="row">
+        <div class="small-12 large-12 columns">
+            <h1 class="text-center headerpagehome">
+                {{ 'views.worldcup.score.ranking.title'|trans }}
+            </h1>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="small-centered small-10 columns text-center panel">
+            <div class="score">
+                <div class="row">
+                    <div class="medium-1 small-1 columns text-center">
+                        <h6 class="whitecolor score">{{ 'views.worldcup.score.ranking.rank'|trans }}</h6>
+                    </div>
+                    <div class="small-6 medium-5 columns text-center">
+                        <h6 class="primarycolor username">{{ 'views.worldcup.score.ranking.user'|trans }}</h6>
+                    </div>
+                    <div class="small-5 columns show-for-small text-center">
+                        <h6 class="whitecolor score">{{ 'views.worldcup.score.ranking.score'|trans }}</h6>
+                    </div>
+                    <div class="small-12 columns show-for-small text-center">
+                        <h6 class="primarycolor score">
+                            {{ 'views.worldcup.score.ranking.nbmaxscore'|trans }}
+                        </h6>
+                    </div>
+                    <div class="medium-3 columns hide-for-small text-center">
+                        <h6 class="whitecolor score">{{ 'views.worldcup.score.ranking.score'|trans }}</h6>
+                    </div>
+                    <div class="medium-3 columns hide-for-small text-center">
+                        <h6 class="primarycolor score">
+                            {{ 'views.worldcup.score.ranking.nbmaxscore'|trans }}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            {% for key,ranking in rankings %}
+                {% set last = rankings|length - 1 %}
+                <div class="score {% if last == key %}scorelast{% endif %}">
+                    <div class="row">
+                        <div class="medium-1 small-1 columns text-center ">
+                            <h6 class="whitecolor score">{{ key+1 }}</h6>
+                        </div>
+                        <div class="small-6 medium-5 columns text-center">
+                            <h6 class="primarycolor username">{{ ranking.user }}</h6>
+                        </div>
+                        <div class="small-5 columns show-for-small text-center">
+                            <h6 class="whitecolor score">{{ ranking.score }}</h6>
+                        </div>
+                        <div class="small-12 columns show-for-small text-center">
+                            <h6 class="primarycolor score">
+                                {{ ranking.nbMaxScore }}
+                            </h6>
+                        </div>
+                        <div class="medium-3 columns hide-for-small text-center">
+                            <h6 class="whitecolor score">{{ ranking.score }}</h6>
+                        </div>
+                        <div class="medium-3 columns hide-for-small text-center">
+                            <h6 class="primarycolor score">
+                                {{ ranking.nbMaxScore }}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
