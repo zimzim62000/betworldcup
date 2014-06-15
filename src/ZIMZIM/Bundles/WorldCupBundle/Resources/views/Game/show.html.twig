@@ -59,23 +59,27 @@
             {% endif %}
             <hr>
             <div class="row">
-                <div class="small-12 large-4 columns text-center">
+                <div class="medium-4 columns text-center">
                     <a class="tiny button round" href="{{ path('zimzim_worldcup_game') }}">
                         {{ 'link.return'|trans }}
                     </a>
                 </div>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <div class="small-12 large-4 columns text-center">
+                    <div class="medium-4 columns text-center">
                         <a class="tiny button round"
                            href="{{ path('zimzim_worldcup_game_edit', { 'id': entity.id }) }}">
                             {{ 'button.update'|trans }}
                         </a>
                     </div>
-                    <div class="small-12 large-4 columns text-center">
+                    <div class="medium-4 columns text-center">
                         {{ form(delete_form) }}
                     </div>
                 {% else %}
-                    <div class="small-12 large-8 columns text-center">
+                    <div class="medium-8 columns text-center">
+                        <a class="tiny button round"
+                           href="{{ path('zimzim_worldcup_userbet_with_game', {'id': entity.id}) }}">
+                            {{ 'button.bet'|trans }}
+                        </a>
                     </div>
                 {% endif %}
             </div>

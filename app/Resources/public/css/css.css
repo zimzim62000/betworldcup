@@ -6588,9 +6588,22 @@ span.score {
   color: white;
 }
 
-/* line 126, ../scss/css.scss */
+/* line 125, ../scss/css.scss */
+span.date {
+  font-weight: bold;
+  color: #f8c300;
+  line-height: 1rem;
+  font-size: 1rem;
+}
+
+/* line 131, ../scss/css.scss */
 span.versus {
   font-weight: bold;
   color: #f8c300;
   line-height: 1.6875rem;
+}
+
+/* line 136, ../scss/css.scss */
+.paddingtopbot {
+  padding: 1rem 0;
 }

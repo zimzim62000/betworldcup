@@ -40,5 +40,53 @@
             {% endif %}
         </div>
     </div>
+    <div class="row">
+        <div class="small-10 small-centered columns text-center ">
+            <div class="row">
+                <div class="small-12 small-centered columns text-center">
+                    <h3 class="whitecolor paddingtopbot">
+                        {{ 'views.worldcup.default.index.gameoftheday'|trans|raw }}
+                    </h3>
+                </div>
+            </div>
+            {% for game in games %}
+                <div class="row panel">
+                    <div class="small-4 columns text-center">
+                        <h4 class="primarycolor">
+                            {{ game.teamA.name }} - {{ game.teamB.name }}
+                        </h4>
+                    </div>
+                    <div class="small-4 columns text-center">
+                        <h4 class="whitecolor">
+                            {{ game.date|date('d/m H:i') }}
+                        </h4>
+                    </div>
+                    <div class="small-4 columns text-center">
+                        <a href="{{ path('zimzim_worldcup_game_show', {'id': game.id}) }}" class="tiny button round">
+                            {{ 'button.show'|trans }}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="small-12 small-centered columns text-center">
+            <h3 class="whitecolor paddingtopbot">
+                {{ 'views.worldcup.default.index.ranking'|trans|raw }}
+            </h3>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="medium-centered small-12 medium-10 columns text-center panel">
+            {% include 'ZIMZIMBundlesWorldCupBundle:Score:include/head-line-score.html.twig' %}
+            {% for key,ranking in rankings %}
+                {% set last = rankings|length - 1 %}
+                {% include 'ZIMZIMBundlesWorldCupBundle:Score:include/line-score.html.twig' with {'ranking': ranking, 'last': last} %}
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock page %}

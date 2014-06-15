@@ -173,3 +173,13 @@ span.baballe:hover {
     transform: translateX(0%);
   }
 }
+
+/***********************\
+        Accordion
+\**********************/
+/* line 88, ../scss/app.scss */
+div.zimzim-accordion {
+  overflow: hidden;
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+}

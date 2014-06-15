@@ -81,3 +81,11 @@ span.baballe:hover{
         @include translateX(0%);
     }
 }
+
+/***********************\
+        Accordion
+\**********************/
+div.zimzim-accordion{
+    overflow: hidden;
+    @include single-transition(all, 1.5s);
+}

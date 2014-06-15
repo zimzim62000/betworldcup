@@ -1,0 +1,26 @@
+<div class="score {% if last == key %}scorelast{% endif %}">
+    <div class="row">
+        <div class="small-2 medium-2 columns text-left ">
+            <h6 class="whitecolor score">{{ key+1 }}</h6>
+        </div>
+        <div class="small-8 medium-6 columns text-center">
+            <h6 class="primarycolor username">{{ ranking.user }}</h6>
+        </div>
+        <div class="small-6 columns show-for-small text-center">
+            <h6 class="whitecolor score">{{ ranking.score }}</h6>
+        </div>
+        <div class="small-6 columns show-for-small text-center">
+            <h6 class="primarycolor score">
+                {{ ranking.nbMaxScore }}
+            </h6>
+        </div>
+        <div class="medium-2 columns hide-for-small text-center">
+            <h6 class="whitecolor score">{{ ranking.score }}</h6>
+        </div>
+        <div class="medium-2 columns hide-for-small text-center">
+            <h6 class="primarycolor score">
+                {{ ranking.nbMaxScore }}
+            </h6>
+        </div>
+    </div>
+</div>

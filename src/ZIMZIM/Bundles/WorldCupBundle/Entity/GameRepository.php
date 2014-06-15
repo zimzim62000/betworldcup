@@ -32,7 +32,22 @@ class GameRepository extends EntityRepository
             ->andWhere('g.scoreTeamA IS NOT NULL')
             ->andWhere('g.scoreTeamB IS NOT NULL')
             ->setParameter('date', $date)
+            ->orderBy('g.date', 'DESC');
+        return $query->getQuery()->getResult();
+    }
+
+    public function getListGameOfTheDay(\DateTime $date){
+
+        $tomorow = clone $date;
+        $tomorow = $tomorow->add(new \DateInterval('P1D'));
+
+        $query = $this->createQueryBuilder('g');
+        $query->where('g.date > :dateDay')
+            ->andWhere('g.date < :dateTomorow')
+            ->setParameter('dateDay', $date)
+            ->setParameter('dateTomorow', $tomorow)
             ->orderBy('g.date', 'ASC');
         return $query->getQuery()->getResult();
     }
+
 }

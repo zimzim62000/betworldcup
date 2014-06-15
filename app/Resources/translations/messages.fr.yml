@@ -19,10 +19,10 @@ views:
         register: "Inscription"
         logout: "Déconnexion"
         identity: "S'identifier"
-        edit: "Mes infos"
-        game: "Les matches"
-        score: "Les Scores"
-        userbet: "Les paris"
+        edit: "Information"
+        game: "Match"
+        score: "Score"
+        userbet: "Pari"
         ranking: "Classement"
     HWIOAuthBundle:
         connect:

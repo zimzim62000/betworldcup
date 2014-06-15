@@ -20,30 +20,35 @@ views:
                     Vous désignez un capitaine pour la partie, il crée les régles et définit les <strong>paris</strong>. Vous voilà paré
                     à vous plonger dans vos statistiques et autres grigris. Mais pour le reste, il n'y a pas de stress, c'est <strong>parier entre amis</strong>
                     qui s'en occupe!
+                gameoftheday: "Les matchs du jour"
+                ranking: "Les 3 premiers du classement"
         game:
             index:
-                title: "Liste des matchs de la partie"
+                title: "Matchs du tournoi"
             show:
                 title: "Detail de la partie"
                 noresult: "Il n'y a pas encore de pari pour ce match !"
         score:
             index:
-                title: "Liste des scores de la partie"
+                title: "Scores du tournoi"
                 noresult: "Il n'y a pas encore de résultats publiés !"
                 versus: "-"
                 forgot: "3 points pour score exacte et 1 point avoir trouver le resultat du match (Victoire ou Null)"
                 point: ""
             ranking:
                 title: "Classement du tournoi"
-                user: "username"
+                user: "utilisateur"
                 score: "pts"
                 nbmaxscore: "bonus"
-                rank: "Rang"
+                rank: "rang"
         userbet:
             new:
                 title: "Je parie !"
             index:
                 title: "Liste de tous les paris"
+form:
+    score:
+        label: "Score"
 flashbag:
     worldcup:
         cantaccessgame: "Le match est en cours ou à déjà été joué. Impossible de modifier votre pari !"

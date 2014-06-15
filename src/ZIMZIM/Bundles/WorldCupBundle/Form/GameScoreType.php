@@ -4,6 +4,8 @@ namespace ZIMZIM\Bundles\WorldCupBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class GameScoreType extends AbstractType
@@ -14,10 +16,28 @@ class GameScoreType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('scoreTeamA', 'zimzim_bundles_worldcupbundle_scoretype')
-            ->add('scoreTeamB', 'zimzim_bundles_worldcupbundle_scoretype')
-        ;
+        $builder->addEventListener(
+            FormEvents::PRE_SET_DATA,
+            function (FormEvent $event) {
+                $game = $event->getData();
+                $form = $event->getForm();
+
+                $form->add(
+                    'scoreTeamA',
+                    'zimzim_bundles_worldcupbundle_scoretype',
+                    array(
+                        'label' => 'form.score.label'.$game->getTeamA()->getName()
+                    )
+                )
+                    ->add(
+                        'scoreTeamB',
+                        'zimzim_bundles_worldcupbundle_scoretype',
+                        array(
+                            'label' => 'Score equipe '.$game->getTeamB()->getName()
+                        )
+                    );
+            }
+        );
     }
     
     /**

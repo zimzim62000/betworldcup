@@ -14,61 +14,11 @@
     </div>
 
     <div class="row ">
-        <div class="small-centered small-10 columns text-center panel">
-            <div class="score">
-                <div class="row">
-                    <div class="medium-1 small-1 columns text-center">
-                        <h6 class="whitecolor score">{{ 'views.worldcup.score.ranking.rank'|trans }}</h6>
-                    </div>
-                    <div class="small-6 medium-5 columns text-center">
-                        <h6 class="primarycolor username">{{ 'views.worldcup.score.ranking.user'|trans }}</h6>
-                    </div>
-                    <div class="small-5 columns show-for-small text-center">
-                        <h6 class="whitecolor score">{{ 'views.worldcup.score.ranking.score'|trans }}</h6>
-                    </div>
-                    <div class="small-12 columns show-for-small text-center">
-                        <h6 class="primarycolor score">
-                            {{ 'views.worldcup.score.ranking.nbmaxscore'|trans }}
-                        </h6>
-                    </div>
-                    <div class="medium-3 columns hide-for-small text-center">
-                        <h6 class="whitecolor score">{{ 'views.worldcup.score.ranking.score'|trans }}</h6>
-                    </div>
-                    <div class="medium-3 columns hide-for-small text-center">
-                        <h6 class="primarycolor score">
-                            {{ 'views.worldcup.score.ranking.nbmaxscore'|trans }}
-                        </h6>
-                    </div>
-                </div>
-            </div>
+        <div class="medium-centered small-12 medium-10 columns text-center panel">
+            {% include 'ZIMZIMBundlesWorldCupBundle:Score:include/head-line-score.html.twig' %}
             {% for key,ranking in rankings %}
                 {% set last = rankings|length - 1 %}
-                <div class="score {% if last == key %}scorelast{% endif %}">
-                    <div class="row">
-                        <div class="medium-1 small-1 columns text-center ">
-                            <h6 class="whitecolor score">{{ key+1 }}</h6>
-                        </div>
-                        <div class="small-6 medium-5 columns text-center">
-                            <h6 class="primarycolor username">{{ ranking.user }}</h6>
-                        </div>
-                        <div class="small-5 columns show-for-small text-center">
-                            <h6 class="whitecolor score">{{ ranking.score }}</h6>
-                        </div>
-                        <div class="small-12 columns show-for-small text-center">
-                            <h6 class="primarycolor score">
-                                {{ ranking.nbMaxScore }}
-                            </h6>
-                        </div>
-                        <div class="medium-3 columns hide-for-small text-center">
-                            <h6 class="whitecolor score">{{ ranking.score }}</h6>
-                        </div>
-                        <div class="medium-3 columns hide-for-small text-center">
-                            <h6 class="primarycolor score">
-                                {{ ranking.nbMaxScore }}
-                            </h6>
-                        </div>
-                    </div>
-                </div>
+                {% include 'ZIMZIMBundlesWorldCupBundle:Score:include/line-score.html.twig' with {'ranking': ranking, 'last': last} %}
             {% endfor %}
         </div>
     </div>

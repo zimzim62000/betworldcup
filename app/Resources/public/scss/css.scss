@@ -122,9 +122,17 @@ span.score {
     font-weight: bold;
     color: $white;
 }
-
+span.date {
+    font-weight: bold;
+    color: $primary-color;
+    line-height: 1rem;
+    font-size: 1rem;
+}
 span.versus {
     font-weight: bold;
     color: $primary-color;
     line-height: 1.6875rem;
+}
+.paddingtopbot{
+    padding: 1rem 0;
 }
