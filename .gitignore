@@ -38,3 +38,5 @@ web/app/css/*
 !web/app/js/.gitkeep
 !web/app/css/.gitkeep
 
+web/js/
+web/css/
