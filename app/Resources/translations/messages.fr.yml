@@ -9,6 +9,7 @@ button:
     bet: "Parier"
     maybego: "Alors, Prêt à tenter votre chance ?"
     updatescore: "score"
+    plus: "plus ?"
 link:
     return: "Retour à la liste"
 views:
