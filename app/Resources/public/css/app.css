@@ -39,22 +39,23 @@ span.beta {
   -webkit-transition: all 1.5s;
   transition: all 1.5s;
   text-decoration: underline;
+  color: #3da964;
 }
 
-/* line 32, ../scss/app.scss */
+/* line 33, ../scss/app.scss */
 span.beta:hover {
   -webkit-animation: spinzim linear 1.5s infinite;
   animation: spinzim linear 1.5s infinite;
 }
 
-/* line 35, ../scss/app.scss */
+/* line 36, ../scss/app.scss */
 span.container-baballe {
   display: block;
   width: 100%;
   position: relative;
 }
 
-/* line 40, ../scss/app.scss */
+/* line 41, ../scss/app.scss */
 span.baballe {
   top: 10px;
   left: 10px;
@@ -71,7 +72,7 @@ span.baballe {
   transform: rotate(315deg);
 }
 
-/* line 52, ../scss/app.scss */
+/* line 53, ../scss/app.scss */
 span.baballe:hover {
   -webkit-animation: spinzim linear 1.5s infinite;
   animation: spinzim linear 1.5s infinite;
@@ -81,14 +82,14 @@ span.baballe:hover {
         Animation
 \**********************/
 @-webkit-keyframes spinzim {
-  /* line 61, ../scss/app.scss */
+  /* line 62, ../scss/app.scss */
   0% {
     -webkit-transform: rotate(315deg);
     -ms-transform: rotate(315deg);
     transform: rotate(315deg);
   }
 
-  /* line 64, ../scss/app.scss */
+  /* line 65, ../scss/app.scss */
   100% {
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
@@ -96,14 +97,14 @@ span.baballe:hover {
   }
 }
 @keyframes spinzim {
-  /* line 61, ../scss/app.scss */
+  /* line 62, ../scss/app.scss */
   0% {
     -webkit-transform: rotate(315deg);
     -ms-transform: rotate(315deg);
     transform: rotate(315deg);
   }
 
-  /* line 64, ../scss/app.scss */
+  /* line 65, ../scss/app.scss */
   100% {
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
@@ -112,14 +113,14 @@ span.baballe:hover {
 }
 
 @-webkit-keyframes moveright {
-  /* line 69, ../scss/app.scss */
+  /* line 70, ../scss/app.scss */
   0% {
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     transform: translateX(0%);
   }
 
-  /* line 72, ../scss/app.scss */
+  /* line 73, ../scss/app.scss */
   100% {
     -webkit-transform: translateX(500%);
     -ms-transform: translateX(500%);
@@ -128,14 +129,14 @@ span.baballe:hover {
 }
 
 @keyframes moveright {
-  /* line 69, ../scss/app.scss */
+  /* line 70, ../scss/app.scss */
   0% {
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     transform: translateX(0%);
   }
 
-  /* line 72, ../scss/app.scss */
+  /* line 73, ../scss/app.scss */
   100% {
     -webkit-transform: translateX(500%);
     -ms-transform: translateX(500%);
@@ -144,14 +145,14 @@ span.baballe:hover {
 }
 
 @-webkit-keyframes moveleft {
-  /* line 77, ../scss/app.scss */
+  /* line 78, ../scss/app.scss */
   0% {
     -webkit-transform: translateX(500%);
     -ms-transform: translateX(500%);
     transform: translateX(500%);
   }
 
-  /* line 80, ../scss/app.scss */
+  /* line 81, ../scss/app.scss */
   100% {
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
@@ -160,14 +161,14 @@ span.baballe:hover {
 }
 
 @keyframes moveleft {
-  /* line 77, ../scss/app.scss */
+  /* line 78, ../scss/app.scss */
   0% {
     -webkit-transform: translateX(500%);
     -ms-transform: translateX(500%);
     transform: translateX(500%);
   }
 
-  /* line 80, ../scss/app.scss */
+  /* line 81, ../scss/app.scss */
   100% {
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
@@ -178,9 +179,9 @@ span.baballe:hover {
 /***********************\
         Accordion
 \**********************/
-/* line 88, ../scss/app.scss */
+/* line 89, ../scss/app.scss */
 div.zimzim-accordion {
   overflow: hidden;
-  -webkit-transition: all 1.5s;
-  transition: all 1.5s;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
 }

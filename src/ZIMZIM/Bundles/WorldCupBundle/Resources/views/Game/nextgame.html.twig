@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'views.worldcup.game.nextgame.title'|trans }}
+{% endblock title %}
+
+{% block page %}
+    <div class="row">
+        <div class="small-12 large-12 columns">
+            <h1 class="text-center headerpagehome">
+                {{ 'views.worldcup.game.nextgame.title'|trans }}
+            </h1>
+        </div>
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="row">
+            <div class="small-12 large-12 columns">
+                <a class="tiny button" href="{{ path('zimzim_worldcup_game_new') }}">
+                    {{ 'button.create'|trans }}
+                </a>
+            </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="small-10 small-centered columns">
+            {% for game in games %}
+                {% include 'ZIMZIMBundlesWorldCupBundle:Game:include/line-game.html.twig' with{'game': game} %}
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-12 columns text-center">
+            <a class="tiny button round" href="{{ path('zimzim_worldcup_game') }}">
+                {{ 'views.worldcup.game.nextgame.showlist'|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}

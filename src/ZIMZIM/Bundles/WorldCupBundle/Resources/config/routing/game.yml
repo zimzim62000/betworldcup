@@ -37,3 +37,8 @@ zimzim_worldcup_game_updatescore:
     pattern:  /{id}/updatescore
     defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Game:updatescore" }
     requirements: { _method: post|put }
+
+zimzim_worldcup_game_nextgame:
+    pattern:  /nextgame/
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Game:nextgame" }
+    requirements: { _method: get }

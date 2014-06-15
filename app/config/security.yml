@@ -65,3 +65,4 @@ security:
         - { path: ^/userbet/game/[0-9]*/bet/, role: ROLE_USER }
         - { path: ^/score/$, role: ROLE_USER }
         - { path: ^/ranking/$, role: ROLE_USER }
+        - { path: ^/game/nextgame/$, role: ROLE_USER }

@@ -16,12 +16,12 @@
     </div>
 
     <div class="row">
-        <div class="small-12 columns">
+        <div class="medium-8 medium-centered columns">
             <h3 class="text-center">
                 {{ 'views.worldcup.default.index.soustitle1'|trans }}
             </h3>
 
-            <p class="blackcolor p-large">
+            <p class="blackcolor p-large text-justify">
                 {{ 'views.worldcup.default.index.who'|trans|raw }}
             </p>
 
@@ -42,7 +42,7 @@
     </div>
     {% if is_granted('ROLE_USER') %}
         <div class="row">
-            <div class="small-10 small-centered columns text-center ">
+            <div class="small-11 small-centered columns text-center ">
                 <h3 class="blackcolor sstitle text-left">
                     {{ 'views.worldcup.default.index.gameoftheday'|trans|raw }}
                 </h3>
@@ -73,16 +73,11 @@
             </div>
         </div>
 
-
         <div class="row">
-            <div class="medium-centered small-12 medium-10 columns text-left">
+            <div class="small-11 small-centered columns text-left">
                 <h3 class="blackcolor sstitle">
                     {{ 'views.worldcup.default.index.ranking'|trans|raw }}
                 </h3>
-            </div>
-        </div>
-        <div class="row ">
-            <div class="medium-centered small-12 medium-10 columns text-center panel">
                 {% include 'ZIMZIMBundlesWorldCupBundle:Score:include/head-line-score.html.twig' %}
                 {% for key,ranking in rankings %}
                     {% set last = rankings|length - 1 %}
@@ -90,6 +85,9 @@
                 {% endfor %}
             </div>
         </div>
+
+        <hr>
+
     {% endif %}
 
 {% endblock page %}

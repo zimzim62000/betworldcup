@@ -22,14 +22,14 @@ class Game
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @GRID\Column(visible=false, sortable=false, filterable=false)
+     * @GRID\Column(visible=false, sortable=false, filterable=false, title="grid.columns.game.id")
      */
     private $id;
 
     /**
      * @var integer
      *
-     * @GRID\Column(field="teamA.name", title="Equipe A",operatorsVisible=false, source=true, filter="select")
+     * @GRID\Column(field="teamA.name", title="grid.columns.game.team",operatorsVisible=false, source=true, filter="select")
      *
      * @ORM\ManyToOne(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\Team", inversedBy="gamesD")
      * @ORM\JoinColumn(name="id_team_a", referencedColumnName="id", nullable=false)
@@ -39,7 +39,7 @@ class Game
     /**
      * @var integer
      *
-     * @GRID\Column(field="teamB.name", title="Equipe B",operatorsVisible=false, source=true, filter="select")
+     * @GRID\Column(field="teamB.name", title="grid.columns.game.team", operatorsVisible=false, source=true, filter="select")
      *
      * @ORM\ManyToOne(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\Team", inversedBy="gamesE")
      * @ORM\JoinColumn(name="id_team_b", referencedColumnName="id", nullable=false)
@@ -49,7 +49,7 @@ class Game
     /**
      * @var integer
      *
-     * @GRID\Column(operatorsVisible=false, filterable=false, role="ROLE_ADMIN")
+     * @GRID\Column(operatorsVisible=false, filterable=false, role="ROLE_ADMIN", title="grid.columns.game.score")
      *
      * @ORM\Column(name="scoreTeamA", type="integer", nullable=true)
      */
@@ -57,7 +57,7 @@ class Game
 
     /**
      * @var integer
-     * @GRID\Column(operatorsVisible=false, filterable=false, role="ROLE_ADMIN")
+     * @GRID\Column(operatorsVisible=false, filterable=false, role="ROLE_ADMIN", title="grid.columns.game.score")
      *
      * @ORM\Column(name="scoreTeamB", type="integer", nullable=true)
      */
@@ -66,7 +66,7 @@ class Game
     /**
      * @var \DateTime
      *
-     * @GRID\Column(format="d/m - H:i", operatorsVisible=false)
+     * @GRID\Column(format="d/m - H:i", operatorsVisible=false, title="grid.columns.game.date")
      *
      *
      * @ORM\Column(name="date", type="datetime")
@@ -76,7 +76,7 @@ class Game
     /**
      * @var string
      *
-     * @GRID\Column(operatorsVisible=false, role="ROLE_ADMIN")
+     * @GRID\Column(operatorsVisible=false, role="ROLE_ADMIN", title="grid.columns.game.type")
      *
      * @ORM\Column(name="type", type="string", length=255)
      */

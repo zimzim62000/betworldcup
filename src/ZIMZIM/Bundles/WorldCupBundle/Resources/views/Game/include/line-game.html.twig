@@ -1,0 +1,43 @@
+<div class="row score panel">
+    <div class="small-5 columns text-center">
+        <h6 class="primarycolor team">
+            {{ game.teamA.name }}
+        </h6>
+    </div>
+    <div class="small-2 columns text-center">
+        <h6 class="whitecolor team">
+            <span class="score">{{ game.scoreTeamA }} </span>
+            -
+            <span class="score"> {{ game.scoreTeamB }}</span>
+        </h6>
+    </div>
+    <div class="small-5 columns text-center">
+        <h6 class="primarycolor team">
+            {{ game.teamB.name }}
+        </h6>
+    </div>
+    <div class="small-3 columns text-center">
+        <h6 class="primarycolor ">
+            <a href="{{ path('zimzim_worldcup_userbet_with_game', {'id': game.id}) }}" class="button tiny round">
+                {{ 'button.bet'|trans }}
+            </a>
+        </h6>
+    </div>
+    <div class="small-6 columns text-center">
+        <h6 class="blackcolor">
+            {{ game.date|date('d/m H:i') }}
+        </h6>
+        <h6 class="yellowcolor team ">
+            {% if game.gamebets.first.scoreTeamA is defined %}
+                {{ game.gamebets.first.scoreTeamA }} - {{ game.gamebets.first.scoreTeamB }}
+            {% endif %}
+        </h6>
+    </div>
+    <div class="small-3 columns text-center">
+        <h6 class="primarycolor">
+            <a href="{{ path('zimzim_worldcup_game_show', {'id': game.id}) }}" class="button tiny round">
+                {{ 'button.show'|trans }}
+            </a>
+        </h6>
+    </div>
+</div>

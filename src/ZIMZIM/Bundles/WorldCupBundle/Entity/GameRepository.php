@@ -36,14 +36,14 @@ class GameRepository extends EntityRepository
         return $query->getQuery()->getResult();
     }
 
-    public function getListGameOfTheDay(\DateTime $date){
+    public function getListGameOfTheDay(\DateTime $date, $nbDay = 1){
 
         $tomorow = clone $date;
-        $tomorow = $tomorow->add(new \DateInterval('P1D'));
+        $tomorow = $tomorow->add(new \DateInterval('P'.$nbDay.'D'));
 
         $query = $this->createQueryBuilder('g');
-        $query->where('g.date > :dateDay')
-            ->andWhere('g.date < :dateTomorow')
+        $query->where('g.date >= :dateDay')
+            ->andWhere('g.date <= :dateTomorow')
             ->setParameter('dateDay', $date)
             ->setParameter('dateTomorow', $tomorow)
             ->orderBy('g.date', 'ASC');

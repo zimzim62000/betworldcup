@@ -5,7 +5,12 @@ site:
         beta: beta
 grid:
     columns:
-        myscore: Mes scores
+        game:
+            myscore: Mes scores
+            score: pt
+            team: "équipe"
+            date: "date"
+            type: "type"
 views:
     worldcup:
         default:
@@ -25,6 +30,15 @@ views:
         game:
             index:
                 title: "Matchs du tournoi"
+                nextgame: "Voir les prochains matchs"
+            nextgame:
+                title: "Prochains matchs du tournoi"
+                team: "Equipe"
+                score: "Score"
+                yourscore: "Mon score"
+                date: "Date"
+                actions: "Actions"
+                showlist: "Voir tous les matchs"
             show:
                 title: "Detail de la partie"
                 noresult: "Il n'y a pas encore de pari pour ce match !"
@@ -32,7 +46,7 @@ views:
             index:
                 title: "Scores du tournoi"
                 noresult: "Il n'y a pas encore de résultats publiés !"
-                versus: "-"
+                versus: " - "
                 forgot: "3 points pour score exacte et 1 point avoir trouver le resultat du match (Victoire ou Null)"
                 point: ""
             ranking:

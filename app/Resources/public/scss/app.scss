@@ -28,6 +28,7 @@ span.beta{
     color: $body-bg;
     @include single-transition(all, 1.5s);
     text-decoration: underline;
+    color: $green;
 }
 span.beta:hover{
     animation: spinzim linear 1.5s infinite;
@@ -87,5 +88,5 @@ span.baballe:hover{
 \**********************/
 div.zimzim-accordion{
     overflow: hidden;
-    @include single-transition(all, 1.5s);
+    @include single-transition(all, 0.7s);
 }

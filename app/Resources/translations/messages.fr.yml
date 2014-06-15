@@ -21,9 +21,9 @@ views:
         logout: "Déconnexion"
         identity: "S'identifier"
         edit: "Information"
-        game: "Match"
-        score: "Score"
-        userbet: "Pari"
+        game: "Matchs"
+        score: "Scores"
+        userbet: "Paris"
         ranking: "Classement"
     HWIOAuthBundle:
         connect:

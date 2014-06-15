@@ -43,7 +43,7 @@ class GameController extends ZimzimController
 
         $MyTypedColumn = new TextColumn(array(
             'id' => 'myscore',
-            'title' => 'grid.columns.myscore',
+            'title' => 'grid.columns.game.myscore',
             'source' => false,
             'filterable' => false,
             'sortable' => false
@@ -419,5 +419,30 @@ class GameController extends ZimzimController
                 'delete_form' => $deleteForm->createView(),
             )
         );
+    }
+
+    public function nextGameAction(){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
+        $games = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->getListGameOfTheDay(new \DateTime('now'));
+
+        foreach($games as $game){
+            $game->setGameBets($game->getGameBets()->filter(
+                    function($userbet) use ($user){
+                        return $userbet->getUser() == $user;
+                    }
+                ));
+        }
+
+        return $this->render(
+            'ZIMZIMBundlesWorldCupBundle:Game:nextgame.html.twig',
+            array(
+                'games' => $games
+            )
+        );
+
     }
 }

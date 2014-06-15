@@ -6525,67 +6525,79 @@ table.width-100 {
 }
 
 /* line 68, ../scss/css.scss */
+.yellowcolor {
+  color: #f3bd36 !important;
+}
+
+/* line 71, ../scss/css.scss */
 .secondarycolor {
   color: #318750 !important;
 }
 
-/* line 71, ../scss/css.scss */
+/* line 74, ../scss/css.scss */
 h1.headerpagehome {
   font-size: 1.85rem;
   padding: 2rem 0 1rem 0;
 }
 
-/* line 76, ../scss/css.scss */
+/* line 79, ../scss/css.scss */
 h2.headerpagehome {
   font-size: 1.65rem;
   padding: 0 0 2rem 0;
 }
 
-/* line 81, ../scss/css.scss */
+/* line 84, ../scss/css.scss */
 p.p-large {
   font-size: 1.15rem;
   padding: 1.5rem 0.25rem;
 }
 
-/* line 86, ../scss/css.scss */
+/* line 89, ../scss/css.scss */
 ul.grid-row-actions li a {
   font-weight: bold;
 }
 
-/* line 90, ../scss/css.scss */
+/* line 93, ../scss/css.scss */
 ul.grid-row-actions li a:hover {
   font-weight: bold;
   color: #318750;
 }
 
-/* line 95, ../scss/css.scss */
+/* line 98, ../scss/css.scss */
 div.score {
-  padding: 0.45rem;
+  padding: 0.45rem 0;
   border-top: 1px SOLID #3da964;
   border-right: 1px SOLID #3da964;
   border-left: 1px SOLID #3da964;
 }
-/* line 100, ../scss/css.scss */
+/* line 103, ../scss/css.scss */
 div.score h6.username {
   padding: 0;
   margin: 0;
   font-weight: bold;
   font-size: 1.25rem;
 }
-/* line 106, ../scss/css.scss */
+/* line 109, ../scss/css.scss */
 div.score h6.score {
   padding: 0;
   margin: 0;
   font-weight: bold;
   font-size: 1.25rem;
 }
-
-/* line 114, ../scss/css.scss */
-div.score:hover {
-  background: #f9f5d1;
+/* line 115, ../scss/css.scss */
+div.score h6.team {
+  padding: 1.25rem 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
 
-/* line 118, ../scss/css.scss */
+/* line 122, ../scss/css.scss */
+div.panel:hover {
+  background: #6a79bc;
+}
+
+/* line 126, ../scss/css.scss */
 div.score.scorelast {
   border-top: 1px SOLID #3da964;
   border-right: 1px SOLID #3da964;
@@ -6593,13 +6605,13 @@ div.score.scorelast {
   border-bottom: 1px SOLID #3da964;
 }
 
-/* line 125, ../scss/css.scss */
+/* line 133, ../scss/css.scss */
 span.score {
   font-weight: bold;
   color: white;
 }
 
-/* line 129, ../scss/css.scss */
+/* line 137, ../scss/css.scss */
 span.date {
   font-weight: bold;
   color: #3da964;
@@ -6607,19 +6619,19 @@ span.date {
   font-size: 1rem;
 }
 
-/* line 135, ../scss/css.scss */
+/* line 143, ../scss/css.scss */
 span.versus {
   font-weight: bold;
   color: #3da964;
   line-height: 1.6875rem;
 }
 
-/* line 140, ../scss/css.scss */
+/* line 148, ../scss/css.scss */
 .paddingtopbot {
   padding: 1rem 0;
 }
 
-/* line 143, ../scss/css.scss */
+/* line 151, ../scss/css.scss */
 .sstitle {
   font-size: 1.7rem;
   line-height: 1.7rem;
