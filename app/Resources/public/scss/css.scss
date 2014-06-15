@@ -13,7 +13,7 @@ div.container {
 }
 
 footer.footer {
-    background: $topbar-bg-color;
+    background: $yellow;
     height: 150px;
     margin-top: -150px;
     clear: both;
@@ -62,6 +62,9 @@ table.width-100 {
 
 .bluecolor {
     color: $blue;
+}
+.secondarycolor{
+    color: $secondary-color !important;
 }
 
 h1.headerpagehome {

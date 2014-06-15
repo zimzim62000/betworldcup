@@ -40,12 +40,14 @@
 $black: #000000;
 $blue: #0C52AD;
 $white: #FFFFFF;
-
+$green: #00923F;
+$sable: #FFE896;
+$yellow: #F8C300;
 // Global
 
 // We use these to control various global styles
-$body-bg: #00923F;
-$body-font-color: #F8C300;
+$body-bg: $sable;
+$body-font-color: $green;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -59,8 +61,8 @@ $body-font-color: #F8C300;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #F8C300;
-$secondary-color: #FFF71C;
+$primary-color: $green;
+$secondary-color: scale-color( $green, $lightness: -20% );
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
@@ -1173,8 +1175,8 @@ $table-row-font-color: $primary-color;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: $primary-color;
-$top-bar-bg-hover: scale-color( $primary-color, $lightness: +20% );
+$topbar-bg-color: $yellow;
+$top-bar-bg-hover: scale-color( $yellow, $lightness: +20% );
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
