@@ -20,6 +20,18 @@
                         {{ 'views.navbar.userbet'|trans }}
                     </a>
                 </li>
+                <li class="divider"></li>
+                <li class="">
+                    <a href="{{ path('zimzim_worldcup_maingame') }}">
+                        {{ 'views.navbar.maingame'|trans }}
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="">
+                    <a href="{{ path('zimzim_worldcup_clientgame') }}">
+                        {{ 'views.navbar.clientgame'|trans }}
+                    </a>
+                </li>
             {% endif %}
             {% if is_granted('ROLE_USER') %}
                 <li class="divider"></li>

@@ -6,6 +6,16 @@ ZIMZIMBundlesWorldCupBundle_zimzim_worldcup_userbet:
     resource: "@ZIMZIMBundlesWorldCupBundle/Resources/config/routing/userbet.yml"
     prefix:   /userbet/
 
+ZIMZIMBundlesWorldCupBundle_zimzim_worldcup_maingame:
+    resource: "@ZIMZIMBundlesWorldCupBundle/Resources/config/routing/maingame.yml"
+    prefix:   /maingame/
+
+ZIMZIMBundlesWorldCupBundle_zimzim_worldcup_clientgame:
+        resource: "@ZIMZIMBundlesWorldCupBundle/Resources/config/routing/clientgame.yml"
+        prefix:   /clientgame/
+
+
+
 zimzim_worldcup_score:
     pattern:  /score/
     defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:Score:index" }
@@ -19,3 +29,4 @@ zimzim_worldcup_score_ranking:
 zimzim_bundles_worldcup_homepage:
     pattern:  /
     defaults: { _controller: ZIMZIMBundlesWorldCupBundle:Default:index }
+    requirements: { _method: get }

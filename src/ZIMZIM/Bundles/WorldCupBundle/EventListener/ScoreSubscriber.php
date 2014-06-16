@@ -33,7 +33,5 @@ class ScoreSubscriber implements EventSubscriberInterface
     {
         $game = $event->getGame();
 
-        $this->calculateScore->calcul($game);
-
     }
 }

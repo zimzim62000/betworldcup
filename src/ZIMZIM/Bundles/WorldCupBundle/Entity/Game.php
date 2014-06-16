@@ -12,7 +12,6 @@ use APY\DataGridBundle\Grid\Mapping as GRID;
  * @ORM\Table(name="worldcup_game")
  * @ORM\Entity(repositoryClass="GameRepository")
  *
- *
  */
 class Game
 {
@@ -25,6 +24,16 @@ class Game
      * @GRID\Column(visible=false, sortable=false, filterable=false, title="grid.columns.game.id")
      */
     private $id;
+
+    /**
+     * @var integer
+     *
+     * @GRID\Column(field="mainGame.name", title="grid.columns.game.mainGame",operatorsVisible=false, source=true, filter="select")
+     *
+     * @ORM\ManyToOne(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\MainGame", inversedBy="games")
+     * @ORM\JoinColumn(name="id_maingame", referencedColumnName="id", nullable=true)
+     */
+    private $mainGame;
 
     /**
      * @var integer
@@ -81,7 +90,6 @@ class Game
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
-
 
     /**
      * @var ArrayCollection
@@ -283,6 +291,40 @@ class Game
         return $this->scores;
     }
 
+    /**
+     * @param int $mainGame
+     */
+    public function setMainGame($mainGame)
+    {
+        $this->mainGame = $mainGame;
 
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMainGame()
+    {
+        return $this->mainGame;
+    }
+
+    public function addMainGame(MainGame $mainGame)
+    {
+        if(!$mainGame->getGames()->contains($this)){
+            $mainGame->addGame($this);
+            $this->mainGame = $mainGame;
+        }
+        return $this;
+    }
+
+    public function removeMainGame(MainGame $mainGame)
+    {
+        if($mainGame->getGames()->contains($this)){
+            $mainGame->removeGame($this);
+            $this->mainGame = null;
+        }
+        return $this;
+    }
 
 }

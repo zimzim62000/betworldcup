@@ -11,6 +11,9 @@ grid:
             team: "équipe"
             date: "date"
             type: "type"
+            mainGame: "mg"
+        maingame:
+            name: "Nom de la partie"
 views:
     worldcup:
         default:
@@ -60,9 +63,34 @@ views:
                 title: "Je parie !"
             index:
                 title: "Liste de tous les paris"
+        maingame:
+            index:
+                title: "Les parties"
+            new:
+                title: "Nouvelle partie"
+            edit:
+                title: "Modification partie"
+        clientgame:
+            show:
+                title: "Paramétrage de votre tournoi"
+                showuser: "Liste de partipants"
+                showinvite: "Liste des invitations envoyés"
+                invite: "Voulez vous invitez des participants ?"
+                emailsubject: " veux que vous jouyez sur parierentreamis.fr"
+
 form:
     score:
         label: "Score"
+    worldcup:
+        type:
+            date:
+                emptyvalue:
+                    day: "Jour"
+                    year: "Année"
+                    month: "Moi"
+            yesno:
+                yes: "Oui"
+                no: "Non"
 flashbag:
     worldcup:
         cantaccessgame: "Le match est en cours ou à déjà été joué. Impossible de modifier votre pari !"

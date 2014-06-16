@@ -7,6 +7,7 @@ use ZIMZIM\Bundles\WorldCupBundle\Calculate\Score;
 
 class ScoreTest extends \PHPUnit_Framework_TestCase
 {
+    /*
     public function testCalculWithoutData()
     {
 
@@ -153,5 +154,5 @@ class ScoreTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $return);
     }
-
+    */
 }

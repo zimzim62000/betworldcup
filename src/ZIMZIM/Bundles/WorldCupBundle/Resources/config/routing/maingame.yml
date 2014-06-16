@@ -1,0 +1,30 @@
+zimzim_worldcup_maingame:
+    pattern:  /
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:MainGame:index" }
+
+zimzim_worldcup_maingame_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:MainGame:show" }
+
+zimzim_worldcup_maingame_new:
+    pattern:  /new
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:MainGame:new" }
+
+zimzim_worldcup_maingame_create:
+    pattern:  /create
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:MainGame:create" }
+    requirements: { _method: post }
+
+zimzim_worldcup_maingame_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:MainGame:edit" }
+
+zimzim_worldcup_maingame_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:MainGame:update" }
+    requirements: { _method: post|put }
+
+zimzim_worldcup_maingame_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:MainGame:delete" }
+    requirements: { _method: post|delete }

@@ -427,7 +427,7 @@ class GameController extends ZimzimController
 
         $user = $this->container->get('security.context')->getToken()->getUser();
 
-        $games = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->getListGameOfTheDay(new \DateTime('now'));
+        $games = $em->getRepository('ZIMZIMBundlesWorldCupBundle:Game')->getListGameOfTheDay(new \DateTime('now'), 2);
 
         foreach($games as $game){
             $game->setGameBets($game->getGameBets()->filter(

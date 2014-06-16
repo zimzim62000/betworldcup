@@ -2,6 +2,7 @@
 
 namespace ZIMZIM\Bundles\WorldCupBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use APY\DataGridBundle\Grid\Mapping as GRID;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -9,7 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * MainGame
  *
- * @ORM\Table(name="worldcup_main_game")
+ * @ORM\Table(name="worldcup_maingame")
  * @ORM\Entity
  */
 class MainGame
@@ -20,25 +21,30 @@ class MainGame
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @GRID\Column(visible=false, sortable=false, filterable=false, title="grid.columns.game.id")
      */
     private $id;
 
     /**
      * @var string
      *
+     * @GRID\Column(field="name", title="grid.columns.maingame.name",operatorsVisible=false, source=true, filter="select")
+     *
      * @ORM\Column(name="name", type="string", length=255)
-*/
+    */
     private $name;
 
     /** @var string
     *
-    * @ORM\Column(name="text", type="text")
+     * @GRID\Column(operatorsVisible=false, filterable=false, visible=false)
+     * @ORM\Column(name="text", type="text")
     */
     private $text;
 
     /**
      * @var \DateTime
      *
+     * @GRID\Column(operatorsVisible=false, filterable=false, visible=false)
      * @ORM\Column(name="dateStart", type="datetime")
      */
     private $dateStart;
@@ -46,12 +52,16 @@ class MainGame
     /**
      * @var \DateTime
      *
+     *
+     * @GRID\Column(operatorsVisible=false, filterable=false, visible=false)
      * @ORM\Column(name="dateEnd", type="datetime")
      */
     private $dateEnd;
 
     /**
      * @var \DateTime
+     *
+     * @GRID\Column(operatorsVisible=false, filterable=false, visible=false)
      *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_at", type="datetime")
@@ -60,12 +70,32 @@ class MainGame
 
     /**
      * @var \DateTime
+     * @GRID\Column(operatorsVisible=false, filterable=false, visible=false)
      *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\Game", mappedBy="mainGame", cascade={"persist"})
+     */
+    private $games;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\ClientGame", mappedBy="MainGame")
+     */
+    private $clientGames;
+
+
+    public function __construct(){
+        $this->games = new ArrayCollection();
+        $this->clientGames = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -208,6 +238,67 @@ class MainGame
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $games
+     */
+    public function setGames($games)
+    {
+        $this->games = $games;
+
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getGames()
+    {
+        return $this->games;
+    }
+
+    public function addGame(Game $game)
+    {
+        if (!$this->games->contains($game)) {
+            $game->addMainGame($this);
+            $this->games[] = $game;
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Game $game)
+    {
+        if (!$this->games->contains($game)) {
+
+            $this->games->removeElement($game);
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $clientGame
+     */
+    public function setClientGames($clientGames)
+    {
+        $this->clientGames = $clientGames;
+
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getClientGames()
+    {
+        return $this->clientGames;
     }
 
 

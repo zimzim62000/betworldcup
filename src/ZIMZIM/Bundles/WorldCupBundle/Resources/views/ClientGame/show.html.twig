@@ -1,0 +1,88 @@
+{% extends '::base.html.twig' %}
+
+
+{% block title %}
+    {{ 'views.worldcup.clientgame.show.title'|trans }}
+{% endblock title %}
+
+{% block page %}
+    <div class="row">
+        <div class="small-12 large-12 columns">
+            <h1 class="text-center headerpagehome">
+                {{ 'views.worldcup.clientgame.show.title'|trans }}
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-12 columns">
+            <h2 class="text-center headerpagehome">
+                {{ entity.name }}
+            </h2>
+            <h5>
+                {{ entity.mainGame.name }}
+            </h5>
+
+            <div class="row">
+                <div class="small-12 columns text-center">
+                    <a class="tiny button" href="{{ path('zimzim_worldcup_clientgame_edit', { 'id': entity.id }) }}">
+                        {{ 'button.update'|trans }}
+                    </a>
+                </div>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="small-12 columns text-center">
+                        {{ form(delete_form) }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <h3>
+                        {{ 'views.worldcup.clientgame.show.showuser'|trans }}
+                    </h3>
+                    {% for usersClientGame in entity.usersClientGame %}
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <h3>
+                                    {% if  usersClientGame.user.username is defined %}
+                                        {{ usersClientGame.user.username }}
+                                    {% endif %}
+                                </h3>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <h3>
+                        {{ 'views.worldcup.clientgame.show.showinvite'|trans }}
+                    </h3>
+                    {% for usersClientGame in entity.usersClientGame %}
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <h3>
+                                    {% if  usersClientGame.email is defined %}
+                                        {{ usersClientGame.email }}
+                                    {% endif %}
+                                </h3>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <h3>
+                        {{ 'views.worldcup.clientgame.show.invite'|trans }}
+                    </h3>
+                    {{ form(form) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

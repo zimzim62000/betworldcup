@@ -62,6 +62,9 @@ security:
         - { path: ^/game/$, role: ROLE_USER }
         - { path: ^/game/[0-9]/[a-z]*, role: ROLE_USER }
         - { path: ^/userbet/$, role: ROLE_ADMIN }
+        - { path: ^/maingame/$, role: ROLE_ADMIN }
+        - { path: ^/clientgame/$, role: ROLE_ADMIN }
+        - { path: ^/clientgame/, role: ROLE_ADMIN }
         - { path: ^/userbet/game/[0-9]*/bet/, role: ROLE_USER }
         - { path: ^/score/$, role: ROLE_USER }
         - { path: ^/ranking/$, role: ROLE_USER }

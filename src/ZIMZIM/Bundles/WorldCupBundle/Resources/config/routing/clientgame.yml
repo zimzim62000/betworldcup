@@ -1,0 +1,35 @@
+zimzim_worldcup_clientgame:
+    pattern:  /
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:ClientGame:index" }
+
+zimzim_worldcup_clientgame_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:ClientGame:show" }
+
+zimzim_worldcup_clientgame_new:
+    pattern:  /new
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:ClientGame:new" }
+
+zimzim_worldcup_clientgame_create:
+    pattern:  /create
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:ClientGame:create" }
+    requirements: { _method: post }
+
+zimzim_worldcup_clientgame_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:ClientGame:edit" }
+
+zimzim_worldcup_clientgame_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:ClientGame:update" }
+    requirements: { _method: post|put }
+
+zimzim_worldcup_clientgame_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:ClientGame:delete" }
+    requirements: { _method: post|delete }
+
+zimzim_worldcup_clientgame_inviteuser:
+    pattern:  /{id}/inviteuser
+    defaults: { _controller: "ZIMZIMBundlesWorldCupBundle:ClientGame:inviteuser" }
+    requirements: { _method: post }

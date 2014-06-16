@@ -146,18 +146,18 @@
 {% endblock form_label %}
 
 
-{% block centaure_bundles_userbundle_checkboxaligntype_widget %}
+{% block zimzim_bundles_worldcupbundle_checkboxaligntype_widget %}
 {% spaceless %}
     <div {{ block('widget_container_attributes') }} >
         <div class="row">
             <div class="small-12 large-12 columns text-right" >
-                <a href="javascript:void(0);" id="userplayer-show" style="display: none;"  onClick="$('.usersplayers_display').show();$('#userplayer-hide').show();$(this).hide();">{{ 'link.show'|trans }}</a>
+                <a href="javascript:void(0);" id="worldcupbundle_checkboxalign-show" style="display: none;"  onClick="$('.worldcupbundle_checkboxalign_display').show();$('#worldcupbundle_checkboxalign-hide').show();$(this).hide();">{{ 'link.show'|trans }}</a>
             </div>
             <div class="small-12 large-12 columns text-right" >
-                <a href="javascript:void(0);" id="userplayer-hide" onClick="$('.usersplayers_display').hide();$('#userplayer-show').show();$(this).hide();">{{ 'link.hide'|trans }}</a>
+                <a href="javascript:void(0);" id="worldcupbundle_checkboxalign-hide" onClick="$('.worldcupbundle_checkboxalign_display').hide();$('#worldcupbundle_checkboxalign-show').show();$(this).hide();">{{ 'link.hide'|trans }}</a>
             </div>
         </div>
-        <div class="usersplayers_display">
+        <div class="worldcupbundle_checkboxalign_display">
             <ul class="small-block-grid-2 large-block-grid-4 no-margin">
             {% for child in form %}
                 <li>
@@ -170,4 +170,46 @@
         {{ form_errors(form) }}
     </div>
 {% endspaceless %}
-{% endblock centaure_bundles_userbundle_checkboxaligntype_widget %}
+{% endblock zimzim_bundles_worldcupbundle_checkboxaligntype_widget %}
+
+
+{% block zimzim_bundles_worldcupbundle_datetype_widget %}
+    {% spaceless %}
+        <ul class="small-block-grid-3 no-margin">
+            <li>
+                {{ form_widget(form.day) }}
+            </li>
+            <li>
+                {{ form_widget(form.month) }}
+            </li>
+            <li>
+                {{ form_widget(form.year) }}
+            </li>
+        </ul>
+        {% endspaceless %}
+{% endblock zimzim_bundles_worldcupbundle_datetype_widget %}
+
+
+{% block zimzim_bundles_worldcupbundle_datetimetype_widget %}
+    {% spaceless %}
+        <ul class="small-block-grid-3 no-margin">
+            <li>
+                {{ form_widget(form.date.day) }}
+            </li>
+            <li>
+                {{ form_widget(form.date.month) }}
+            </li>
+            <li>
+                {{ form_widget(form.date.year) }}
+            </li>
+        </ul>
+        <ul class="small-block-grid-2 no-margin">
+            <li>
+                {{ form_widget(form.time.hour) }}
+            </li>
+            <li>
+                {{ form_widget(form.time.minute) }}
+            </li>
+        </ul>
+    {% endspaceless %}
+{% endblock zimzim_bundles_worldcupbundle_datetimetype_widget %}

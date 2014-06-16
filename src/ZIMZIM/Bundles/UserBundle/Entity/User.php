@@ -89,10 +89,27 @@ class User extends BaseUser
      */
     private $userBets;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\UserClientGame", mappedBy="user")
+     */
+    private $usersClientGame;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ZIMZIM\Bundles\WorldCupBundle\Entity\ClientGame", mappedBy="user")
+     */
+    private $clientGame;
+
+
     public function __construct(){
         parent::__construct();
 
         $this->userBets = new ArrayCollection();
+        $this->clientGame  = new ArrayCollection();
+        $this->usersClientGame = new ArrayCollection();
     }
 
     /**
@@ -288,6 +305,54 @@ class User extends BaseUser
     public function getUserBets()
     {
         return $this->userBets;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $clientGame
+     */
+    public function setClientGame($clientGame)
+    {
+        $this->clientGame = $clientGame;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getClientGame()
+    {
+        return $this->clientGame;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $usersMainGame
+     */
+    public function setUsersMainGame($usersMainGame)
+    {
+        $this->usersMainGame = $usersMainGame;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getUsersMainGame()
+    {
+        return $this->usersMainGame;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $usersClientGame
+     */
+    public function setUsersClientGame($usersClientGame)
+    {
+        $this->usersClientGame = $usersClientGame;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getUsersClientGame()
+    {
+        return $this->usersClientGame;
     }
 
 

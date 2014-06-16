@@ -6,6 +6,22 @@ services:
         class: ZIMZIM\Bundles\WorldCupBundle\Form\Type\ScoreType
         tags:
             - { name: form.type, alias: zimzim_bundles_worldcupbundle_scoretype }
+    zimzim_bundles_worldcup.type.yesnotype:
+        class: ZIMZIM\Bundles\WorldCupBundle\Form\Type\YesNoType
+        tags:
+            - { name: form.type, alias: zimzim_bundles_worldcupbundle_yesnotype }
+    zimzim_bundles_worldcup.type.datetype:
+        class: ZIMZIM\Bundles\WorldCupBundle\Form\Type\DateType
+        tags:
+            - { name: form.type, alias: zimzim_bundles_worldcupbundle_datetype }
+    zimzim_bundles_worldcup.type.datetimetype:
+        class: ZIMZIM\Bundles\WorldCupBundle\Form\Type\DateTimeType
+        tags:
+            - { name: form.type, alias: zimzim_bundles_worldcupbundle_datetimetype }
+    zimzim_bundles_worldcup.type.checkboxaligntype:
+        class: ZIMZIM\Bundles\WorldCupBundle\Form\Type\CheckboxAlignType
+        tags:
+            - { name: form.type, alias: zimzim_bundles_worldcupbundle_checkboxaligntype }
     zimzim_bundles_worldcup.userbettype:
         class: ZIMZIM\Bundles\WorldCupBundle\Form\UserBetType
         tags:
@@ -21,13 +37,22 @@ services:
         class: ZIMZIM\Bundles\WorldCupBundle\Calculate\GamePoint
     zimzim_bundles_worldcup.entity.score:
         class: ZIMZIM\Bundles\WorldCupBundle\Entity\Score
+    zimzim_bundles_worldcup.entity.userclientgame:
+        class: ZIMZIM\Bundles\WorldCupBundle\Entity\UserClientGame
     zimzim_bundles_worldcup.listener.scoresubscriber:
         class: ZIMZIM\Bundles\WorldCupBundle\EventListener\ScoreSubscriber
         arguments: [ @doctrine.orm.entity_manager, @zimzim_bundles_worldcup.calculate.score ]
         tags:
             - { name: kernel.event_subscriber }
+    zimzim_bundles_worldcup.listener.registerclientgamesubscriber:
+        class: ZIMZIM\Bundles\WorldCupBundle\EventListener\RegisterClientGameSubscriber
+        arguments: [ @doctrine.orm.entity_manager, @zimzim_bundles_worldcup.entity.userclientgame ]
+        tags:
+            - { name: kernel.event_subscriber }
     zimzim_bundles_worldcup.event.scoreevent:
         class: ZIMZIM\Bundles\WorldCupBundle\Event\ScoreEvent
+    zimzim_bundles_worldcup.event.clientgameevent:
+        class: ZIMZIM\Bundles\WorldCupBundle\Event\ClientGameEvent
     zimzim_bundles_worldcup.calculate.ranking:
         class: ZIMZIM\Bundles\WorldCupBundle\Calculate\Ranking
         arguments: [ @doctrine.orm.entity_manager, @zimzim_bundles_worldcup.calculate.userranking ]
